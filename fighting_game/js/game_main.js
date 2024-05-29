@@ -9,7 +9,7 @@ let gameTimeInterval;
 // closeボタンを作成
 function close() {
   const close = document.getElementById("close");
-  close.innerHTML = `<a href="/retro_games/fighting_game/html/fighting_mode.html">戻る</a>`;
+  close.innerHTML = `<a href="/fighting_game/html/fighting_mode.html">戻る</a>`;
 }
 
 // player1のHPを描画
