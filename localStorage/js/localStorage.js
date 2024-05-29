@@ -28,7 +28,7 @@ const score = [
 
 const life = 5;
 
-// 最初に実行
+// 最初に実行（使うな）
 function init() {
   // localStorageに接続できるか確認
 
@@ -38,7 +38,7 @@ function init() {
   initScore();
 }
 
-// ライフを減らす
+// ライフを減らす（使うな）
 function minusLife() {
   let life = localStorage.getItem("life");
   if (life <= 0) {
@@ -48,7 +48,7 @@ function minusLife() {
   localStorage.setItem("life", life);
 }
 
-// ライフを増やす
+// ライフを増やす　（使うな）
 function plusLife() {
   let life = localStorage.getItem("life");
   if (life >= 5) {

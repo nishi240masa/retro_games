@@ -13,10 +13,10 @@ fetch("/header/html/header.html")
       } else if (url.includes("fighting_game")) {
         console.log("fighting_game");
         fightingGameTitle();
-      } else if (url.includes("gramon")) {
+      } else if (url.includes("gluttony_monster")) {
         console.log("gramon");
         gramonTitle();
-      } else if (url.includes("shooting_game")) {
+      } else if (url.includes("shooting")) {
         console.log("shooting_game");
         shootingGameTitle();
       } else if (url.includes("block_breaker")) {
