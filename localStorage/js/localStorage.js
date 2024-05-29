@@ -81,7 +81,7 @@ const bleck_breaker = {
 const life = 5;
 
 // 最初に実行（使うな）
-function init() {
+function initlocal() {
   // localStorageに接続できるか確認
 
   // ライフの初期化
@@ -152,6 +152,11 @@ function setScore(game_id, score) {
   if (game_id < 0 || game_id >= score.length) {
     console.error("game_idが不正です");
     return;
+  }
+
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("score") == null) {
+    initPersonal(game_id);
   }
 
   let scoreArray = JSON.parse(localStorage.getItem("score"));
