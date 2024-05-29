@@ -18,6 +18,16 @@ btn_breaking.addEventListener("click", function () {
   window.location.href = "../../breaking_blocks/html/breaking.html";
 });
 
+// 最初に読み込んだ時にlocalsotrageの初期化を行う
+window.addEventListener("load", () => {
+  // ローカルストレージの初期化
+  const item = localStorage.getItem("score");
+  const life = localStorage.getItem("life");
+  if (item === null || life === null) {
+    initlocal();
+  }
+});
+
 // デバック用
 // addLLife
 btn_addLife = document.getElementById("btn_addLife");

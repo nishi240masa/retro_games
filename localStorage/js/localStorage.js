@@ -88,6 +88,9 @@ function initlocal() {
   initLife();
   // スコアの初期化
   initScore();
+
+  // ブロック崩しのスコアの初期化
+  initBleckBreakerScore();
 }
 
 // ライフを減らす（使うな）
@@ -129,6 +132,12 @@ function initLife() {
 // 全員のスコアの初期化
 function initScore() {
   const scoreArray = JSON.stringify(score);
+  localStorage.setItem("score", scoreArray);
+}
+
+// ブロック崩しのスコアを初期化
+function initBleckBreakerScore() {
+  const scoreArray = JSON.stringify(bleck_breaker.score);
   localStorage.setItem("score", scoreArray);
 }
 
