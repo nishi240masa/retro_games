@@ -26,6 +26,58 @@ const score = [
   },
 ];
 
+const bleck_breaker = {
+  // ゲームID(0): ブロック崩し
+  game_id: 0,
+  score: [
+    {
+      id: 0,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 1,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 2,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 3,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 4,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 5,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 6,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 7,
+      last_score: 0,
+      high_score: 0,
+    },
+    {
+      id: 8,
+      last_score: 0,
+      high_score: 0,
+    },
+  ],
+};
+
 const life = 5;
 
 // 最初に実行（使うな）
@@ -58,7 +110,7 @@ function plusLife() {
   localStorage.setItem("life", life);
 }
 
-// ライフを取得
+// ライフを取得(使うな)
 function getLife() {
   if (localStorage.getItem("life") == null) {
     initLife();
@@ -114,6 +166,45 @@ function setScore(game_id, score) {
 
   console.log("last_score: " + last_score);
   console.log("high_score: " + high_score);
+}
+
+// ブロック崩しのスコアをセット
+function setBleckBreakerScore(id, score) {
+  // エラー処理
+  if (id < 0 || id >= bleck_breaker.score.length) {
+    console.error("game_idが不正です");
+    return;
+  }
+
+  let scoreArray = JSON.parse(localStorage.getItem("score"));
+  let last_score = scoreArray[id].last_score;
+  let high_score = scoreArray[id].high_score;
+
+  last_score = score;
+
+  if (score > high_score) {
+    high_score = score;
+  }
+
+  console.log("last_score: " + last_score);
+  console.log("high_score: " + high_score);
+}
+
+// ブロック崩しのスコアを取得
+function getBleckBreakerScore(id) {
+  // エラー処理
+  if (id < 0 || id >= bleck_breaker.score.length) {
+    console.error("game_idが不正です");
+    return;
+  }
+
+  let scoreArray = JSON.parse(localStorage.getItem("score"));
+  const score = {
+    last_score: scoreArray[id].last_score,
+    high_score: scoreArray[id].high_score,
+  };
+
+  return score;
 }
 
 // scoreを取得
