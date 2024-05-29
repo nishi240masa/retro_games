@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <!-- OGP -->
+    <!-- ページのタイトルを設定 -->
+    <meta property="og:title" content="team-f" />
+    <meta property="og:description" content="team-f" />
+    <!-- サイトの名前を設定 -->
+    <meta property="og:site_name" content="team-f" />
+    <!-- ogp画像の設定 -->
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- デバック用ボタン -->
+    <div class="test">
+      <button class="addLife_btn" id="btn_addLife">ライフを増やす</button>
+      <button class="removeLife_btn" id="btn_removeLife">ライフを減らす</button>
+    </div>
+
+    <main>
+      <div class="start">
+        <button class="start_btn" id="btn_fight">格ゲー</button>
+        <button class="start_btn" id="btn_shooting">シューティング</button>
+        <button class="start_btn" id="btn_breaking">ブロック崩し</button>
+        <button class="start_btn" id="btn_gluttony">グラモン</button>
+      </div>
+    </main>
+
+    <!-- Import JS -->
+    <script src="../../header/js/header.js"></script>
+    <script src="../../localStorage/js/localStorage.js"></script>
+    <script src="../../header/js/life.js"></script>
+    <script src="../js/home.js"></script>
+  </body>
+</html>

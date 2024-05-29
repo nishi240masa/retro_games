@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2D格闘ゲーム</title>
+    <link rel="stylesheet" href="../../css/fighting_hard.css" />
+
+    <!-- material icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    <div class="hard">
+      <div id="header"></div>
+      <div class="main">
+        <div class="mode">
+          <h1>hard</h1>
+        </div>
+        <canvas id="gameCanvas" class="canvas"></canvas>
+        <div id="close" class="close"></div>
+        <!-- 説明部分 -->
+        <div id="explanation"></div>
+      </div>
+      <div class="back">
+        <span id="return" class="material-symbols-outlined">
+          keyboard_return
+        </span>
+      </div>
+    </div>
+
+    <script src="../../js/fighting_hard.js"></script>
+    <script src="../../../header/js/header.js"></script>
+    <script src="../../js/explanation.js"></script>
+
+    <script src="../../js/canvas.js"></script>
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/characters.js"></script>
+    <script src="../../js/cpu.js"></script>
+    <script src="../../js/game_main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+// 機能: ヘッダーのタイトルを表示する
+fetch("/header/html/header.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.querySelector("#header").innerHTML = data;
+
+    window.addEventListener("load", () => {
+      console.log("header_title.js");
+      const url = window.location.href;
+      if (url.includes("index")) {
+        console.log("retro_games");
+        retroGameTitle();
+      } else if (url.includes("fighting_game")) {
+        console.log("fighting_game");
+        fightingGameTitle();
+      } else if (url.includes("gramon")) {
+        console.log("gramon");
+        gramonTitle();
+      } else if (url.includes("shooting_game")) {
+        console.log("shooting_game");
+        shootingGameTitle();
+      } else if (url.includes("block_breaker")) {
+        console.log("block_breaker");
+        blockBreakerTitle();
+      } else {
+        console.log("other");
+      }
+    });
+
+    // レトロゲームの時のタイトルを表示する
+    function retroGameTitle() {
+      console.log("retroGameTitle");
+      const title = document.getElementById("title_name");
+      console.log(title);
+      if (title) title.innerText = "Retro Game";
+    }
+
+    // 格ゲーの時のタイトルを表示する
+    function fightingGameTitle() {
+      const title = document.getElementById("title_name");
+      console.log(title);
+      if (title) title.innerText = "Fighting Game";
+    }
+
+    // グラモンの時のタイトルを表示する
+    function gramonTitle() {
+      const title = document.getElementById("title_name");
+      console.log(title);
+      if (title) title.innerText = "Gramon";
+    }
+
+    // シューティングの時のタイトルを表示する
+    function shootingGameTitle() {
+      const title = document.getElementById("title_name");
+      console.log(title);
+      if (title) title.innerText = "Shooting Game";
+    }
+
+    // ブロック崩しの時のタイトルを表示する
+    function blockBreakerTitle() {
+      const title = document.getElementById("title_name");
+      console.log(title);
+      if (title) title.innerText = "Block Breaker";
+    }
+  });
