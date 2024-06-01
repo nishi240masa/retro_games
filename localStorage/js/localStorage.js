@@ -159,6 +159,10 @@ function initPersonal(game_id) {
     console.error("game_idが不正です");
     return;
   }
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("score") == null) {
+    initScore();
+  }
 
   let scoreArray = JSON.parse(localStorage.getItem("score"));
   scoreArray[game_id].last_score = 0;
