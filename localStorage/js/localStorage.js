@@ -207,6 +207,11 @@ function setBleckBreakerScore(id, scoreValue) {
     return;
   }
 
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("bleck_score") == null) {
+    initBleckBreakerScore();
+  }
+
   const scoreArray = JSON.parse(localStorage.getItem("bleck_score"));
   let last_score = scoreArray[id].last_score;
   let high_score = scoreArray[id].high_score;
