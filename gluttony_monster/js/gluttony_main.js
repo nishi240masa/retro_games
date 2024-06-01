@@ -30,35 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 	];
 
-	const mazeflag = [
-		[5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-		[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-		[5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5],
-		[5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5],
-		[5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5],
-		[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-		[5, 0, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 0, 5],
-		[5, 0, 5, 5, 5, 0, 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5, 5, 5, 0, 5],
-		[5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 5, 0, 5, 5, 5, 0, 0, 0, 0, 0, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 0, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 0, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 0, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5],
-		[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-		[5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5, 0, 5, 5, 5, 0, 5, 5, 5, 0, 5],
-		[5, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5],
-		[5, 5, 5, 0, 5, 0, 5, 0, 5, 5, 5, 5, 5, 0, 5, 0, 5, 0, 5, 5, 5],
-		[5, 5, 5, 0, 5, 0, 5, 0, 5, 5, 5, 5, 5, 0, 5, 0, 5, 0, 5, 5, 5],
-		[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-		[5, 0, 5, 5, 5, 5, 5, 5, 5, 0, 5, 0, 5, 5, 5, 5, 5, 5, 5, 0, 5],
-		[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-		[5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-	];
+	const mazeflag = structuredClone(maze);
 
 
 	canvas = document.getElementById('gameCanvas');
@@ -70,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	let player = {
 		dwidth: cellWidth,//プレイヤー画像の幅
 		dheight: cellHeight,//プレイヤー画像の高さ
-		dx: Math.ceil(cellWidth * 10),//x座標
+		dx: Math.ceil(cellWidth * 11),//x座標
 		dy: Math.ceil(cellHeight * 20),//y座標
 		doJump: false,//ジャンプしているか
 		direction: 2,//プレイヤーの向いている方向
@@ -167,14 +139,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	let intervalTime = 300;//処理のインターバルを設定する変数
 	let clearScreen = 0;//クリア時の画面を暗くさせる
+	let mainInterval;
 
 
-	console.log(localStorage.getItem('highScore'))
 
 	function Main() {
 		canvas.style.border = "1px solid #111";
 
-		setInterval(Draw, intervalTime);//"intervalTime"ms後にDrawを再実行}
+		mainInterval = setInterval(Draw, intervalTime);//"intervalTime"ms後にDrawを再実行}
 	}
 
 	function CountFood() {
@@ -210,47 +182,37 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-
-	function canMoveTo(y, x) {
-		const i = Math.floor(y / cellHeight);
-		const j = Math.floor(x / cellWidth);
-		return (i >= 0 && i < maze.length && j >= 0 && j < maze[0].length && maze[i][j] === 0);
-	}
 	
 
-	
-    function DrawPlayer() {
-        const direction = player.direction; // 現在のプレイヤーの移動している方向を保存
-        const image = player.doJump ? player.images[direction].jump : player.images[direction].default;
+	//プレイヤーを動かす
+function movePlayer(){
+	const direction = player.direction; // 現在のプレイヤーの移動している方向を保存
+	let newDx = player.dx;
+	let newDy = player.dy;
 
-        ctx.clearRect(player.dx - 1, player.dy - 1, player.dwidth + 2, player.dheight + 2); // 以前のプレイヤーの描画を消す
+	if (direction === 1) newDy -= cellHeight; // W
+	if (direction === 2) newDx -= cellWidth; // A
+	if (direction === 3) newDy += cellHeight; // S
+	if (direction === 4) newDx += cellWidth; // D
 
-        // 画像の読み込みが完了している場合のみ描画
-        if (image.complete) {
-            ctx.drawImage(image, player.dx + (cellWidth - player.dwidth) / 2, player.dy + (cellHeight - player.dheight) / 2, player.dwidth, player.dheight);
-        }
-
-        if (direction !== 0) { // 方向が設定されている場合にだけ動かす(keyDownイベントで方向が設定される)
-            let newDx = player.dx;
-            let newDy = player.dy;
-
-            if (direction === 1) newDy -= cellHeight; // W
-            if (direction === 2) newDx -= cellWidth; // A
-            if (direction === 3) newDy += cellHeight; // S
-            if (direction === 4) newDx += cellWidth; // D
-
-            // 進む方向に壁がないかどうかをチェック
-            if (canMoveTo(newDy, newDx)) {
-                player.dx = newDx;
-                player.dy = newDy;
-            }
-        }
-    }
-
-	function resetPlayer() {
-			player.dx = Math.ceil(cellWidth * 10);
-			player.dy = Math.ceil(cellHeight * 15);
+	// 進む方向に壁がないかどうかをチェック
+	if (canMoveTo(newDy, newDx)) {
+		player.dx = newDx;
+		player.dy = newDy;
 	}
+}
+
+
+
+	
+function DrawPlayer() {
+	const direction = player.direction;
+	const image = player.doJump ? player.images[direction].jump : player.images[direction].default;
+
+	if (image.complete) {
+		ctx.drawImage(image, player.dx, player.dy, player.dwidth, player.dheight);
+	}
+}
 
 	function moveEnemy(enemy) {
 		let newDx = enemy.dx;
@@ -271,58 +233,88 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	function moveEnemyChase(enemy) {
+        let directions = [0, 0, 0, 0]; // [W, A, S, D]
+        let newDx = enemy.dx;
+        let newDy = enemy.dy;
+
+        // 進む方向に壁がないかどうかをチェック
+        // 進める方向がどこかを調べて配列に格納する
+        // W
+        if (canMoveTo(newDy - cellHeight, newDx)) {
+            directions[0] = 1;
+        }
+        // A
+        if (canMoveTo(newDy, newDx - cellWidth)) {
+            directions[1] = 1;
+        }
+        // S
+        if (canMoveTo(newDy + cellHeight, newDx)) {
+            directions[2] = 1;
+        }
+        // D
+        if (canMoveTo(newDy, newDx + cellWidth)) {
+            directions[3] = 1;
+        }
+
+        let distance = [0, 0, 0, 0];
+        for (let i = 0; i < directions.length; i++) {
+            if (directions[i] != 0) {
+                let tempDx = newDx, tempDy = newDy;
+                if (i === 0) tempDy -= cellHeight; // W
+                if (i === 1) tempDx -= cellWidth; // A
+                if (i === 2) tempDy += cellHeight; // S
+                if (i === 3) tempDx += cellWidth; // D
+                distance[i] = Math.hypot(player.dx - tempDx, player.dy - tempDy);
+            }
+        }
+
+        let minDis = Infinity;
+        let minIndex = 0;
+
+        for (let i = 0; i < directions.length; i++) {
+            if (directions[i] != 0 && minDis > distance[i]) {
+                minDis = distance[i];
+                minIndex = i;
+            }
+        }
+
+        enemy.direction = minIndex + 1; // 最小距離になる方向
+
+        if (enemy.direction === 1) newDy -= cellHeight; // W
+        if (enemy.direction === 2) newDx -= cellWidth; // A
+        if (enemy.direction === 3) newDy += cellHeight; // S
+        if (enemy.direction === 4) newDx += cellWidth; // D
+
+        enemy.dx = newDx;
+        enemy.dy = newDy;
+    }
 
 
-	function DrawEnemy1() {
-		const direction = enemy1.direction;//現在のプレイヤーの移動している方向を保存
-		const image = enemy1.images[enemy1.direction].default;
 
-		ctx.clearRect(enemy1.dx - 1, enemy1.dy - 1, enemy1.dwidth + 2, enemy1.dheight + 2); // 以前のプレイヤーの描画を消す
-
-		// 画像の読み込みが完了している場合のみ描画
-		if (image.complete) {
-			moveEnemy(enemy1);
-			ctx.drawImage(image, enemy1.dx + (cellWidth - enemy1.dwidth) / 2, enemy1.dy + (cellHeight - enemy1.dheight) / 2, enemy1.dwidth, enemy1.dheight);
-		}
-
+	//進んだ先が壁かどうかを調べる
+	function canMoveTo(y, x) {
+		const i = Math.floor(y / cellHeight);
+		const j = Math.floor(x / cellWidth);
+		return (i >= 0 && i < maze.length && j >= 0 && j < maze[0].length && maze[i][j] === 0);
 	}
 
-	 function DrawEnemy2() {
-	 	const direction = enemy2.direction;//現在のenemy2の移動している方向を保存
-	 	const image = enemy2.images[direction].default;
 
-	 	ctx.clearRect(enemy2.dx - 1, enemy2.dy - 1, enemy2.dwidth + 2, enemy2.dheight + 2); // 以前のプレイヤーの描画を消す
+    function DrawEnemy(enemy) {
+        const direction = enemy.direction;
+        const image = enemy.images[direction].default;
 
-	 	// 画像の読み込みが完了している場合のみ描画
-	 	if (image.complete) {
-			moveEnemy(enemy2);
-	 		ctx.drawImage(image, enemy2.dx + (cellWidth - enemy2.dwidth) / 2, enemy2.dy + (cellHeight - enemy2.dheight) / 2, enemy2.dwidth, enemy2.dheight);
-	 	}
+        if (image.complete) {
+            ctx.drawImage(image, enemy.dx, enemy.dy, enemy.dwidth, enemy.dheight);
+        }
+    }
 
 
-	 }
-
-	 function DrawEnemy3() {
-	 	const image = enemy3.images[enemy3.direction].default;
-
-	 	const direction = enemy3.direction;//現在のenemy3の移動している方向を保存
-
-	 	ctx.clearRect(enemy3.dx - 1, enemy3.dy - 1, enemy3.dwidth + 2, enemy3.dheight + 2); // 以前のプレイヤーの描画を消す
-
-	 	// 画像の読み込みが完了している場合のみ描画
-	 	if (image.complete) {
-
-			moveEnemy(enemy3);
-	 		ctx.drawImage(image,enemy3.dx + (cellWidth - enemy3.dwidth) / 2, enemy3.dy + (cellHeight - enemy3.dheight) / 2, enemy3.dwidth, enemy3.dheight);
-	 	}
-
-
-	 }
-
+	 //Draw関数内での処理行数を減らすための処理
 	function DrawEnemies() {
-		DrawEnemy1();
-		DrawEnemy2();
-		DrawEnemy3();
+		DrawEnemy(enemy1);
+		DrawEnemy(enemy2);
+		DrawEnemy(enemy3);
 	}
 
 	function CheckGetFood(y, x) {
@@ -339,23 +331,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-	//全ての餌を食べられたかどうかを判定する
+	//全ての餌を食べられたかどうかを判定し、クリアしていたら画面を遷移する
 	function CheckClear() {
-		if (getFood === 231) {
-			// ctx.clearRect(0, 0, canvas.width, canvas.height);
-			while (clearScreen <= canvas.height) {
-				setTimeout(() => {
-					ctx.clearRect(0, 0, clearScreen, clearScreen);
-					console.log("画面クリアしている");
-				}, 4 * 1000);
-				clearScreen++
-			}
-			addLife();
-			setScore(1, score);
-			//localStorage.setItem("gameScore",score);
-			location.href = '../html/gluttony_clear.html';
+		if (getFood === countFood) {
+			console.log("全てのフードを収集しました。");
+			// ゲームループを停止
+			clearInterval(mainInterval);
+	
+			// 画面を少しずつ黒くする
+			const interval = setInterval(() => {
+				ctx.clearRect(0, 0, canvas.width, clearScreen);
+				clearScreen += 10; // クリアする範囲を少しずつ増やす
+				console.log("画面クリアしている");
+	
+				if (clearScreen > canvas.height) {
+					clearInterval(interval); // インターバルをクリア
+					addLife();
+					setScore(1, score);
+					location.href = '../html/gluttony_clear.html'; // クリア画面に遷移
+				}
+			}, 50); // 50msごとに実行
 		}
 	}
+
+
+	//全ての餌を食べられたかどうかを判定し、クリアしていたら画面を遷移する
+	function DebugCheckClear() {
+		score = 2000;
+		addLife();
+		setScore(1, score);
+		location.href = '../html/gluttony_clear.html'; // クリア画面に遷移
+	}
+
+
 
 	function CheckGameover() {//ゲームオーバーかどうかを判定する
 
@@ -363,6 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			//残機あり
 			player.life = player.life - 1;
+			console.log("ライフが1減りました");
 			document.getElementById('playerLife').textContent = `life stock:${player.life}`;
 			resetPlayer();
 		} else {
@@ -373,23 +382,32 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	function gameOver() {
 
-		
+
+
+		//敵と衝突した場合にプレイヤーの1をリセットする
+	function resetPlayer() {
+		player.dx = Math.ceil(cellWidth * 11);
+		player.dy = Math.ceil(cellHeight * 20);
+		player.direction  = 2;
+}
+
+	function gameOver() {
 			flowFlag = 1;
 			setScore(1, score);
-			//localStorage.setItem("gameScore",score);
 			location.href = '../html/gluttony_gameover.html';
 	}
 
 
 
-	function isColliding(rect1, rect2) {
-		return rect1.x < rect2.x + rect2.width &&
-			   rect1.x + rect1.width > rect2.x &&
-			   rect1.y < rect2.y + rect2.height &&
-			   rect1.y + rect1.height > rect2.y;
-	}
+    function isColliding(rect1, rect2) {
+        return rect1.x < rect2.x + rect2.width &&
+               rect1.x + rect1.width > rect2.x &&
+               rect1.y < rect2.y + rect2.height &&
+               rect1.y + rect1.height > rect2.y;
+    }
+
+
 	
 	function CheckCollision() {
 
@@ -398,6 +416,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		// プレイヤーと敵1の衝突判定
 		const enemy1Rect = { x: enemy1.dx, y: enemy1.dy, width: enemy1.dwidth, height: enemy1.dheight };
 		if (isColliding(playerRect, enemy1Rect)) {
+			console.log("敵１と衝突");
 			CheckGameover();
 			return;
 		}
@@ -405,6 +424,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		// プレイヤーと敵2の衝突判定
 		const enemy2Rect = { x: enemy2.dx, y: enemy2.dy, width: enemy2.dwidth, height: enemy2.dheight };
 		if (isColliding(playerRect, enemy2Rect)) {
+			console.log("敵２と衝突");
 			CheckGameover();
 			return;
 		}
@@ -412,6 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		// プレイヤーと敵3の衝突判定
 		const enemy3Rect = { x: enemy3.dx, y: enemy3.dy, width: enemy3.dwidth, height: enemy3.dheight };
 		if (isColliding(playerRect, enemy3Rect)) {
+			console.log("敵３と衝突");
 			CheckGameover();
 			return;
 		}
@@ -421,9 +442,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		DrawMazes();//mapを生成
 		CheckClear();//クリアしたかどうか(map上の餌を全て取得できたか)
+
+		movePlayer();//プレイヤーを移動
 		CheckGetFood(player.dy, player.dx);//餌を食べられたかどうか
 		DrawPlayer();//プレイヤーを描画
+
+		//敵をそれぞれ移動させる
+		//moveEnemy(enemy1);
+		moveEnemyChase(enemy1);
+		moveEnemy(enemy2);
+		moveEnemy(enemy3);
 		DrawEnemies();
+
 		CheckCollision();
 		player.doJump = !player.doJump;
 
@@ -440,11 +470,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (key === 'D') player.direction = 4;
 	});
 
-	const button = document.querySelector('#backToHome');
+	const button = document.querySelector('#return');
 
 	button.addEventListener("click", (event) => {
 		console.log("ボタンをクリックしました");
 		location.href = '../html/gluttony_top.html';
+	});
+
+	const debugButton = document.querySelector('#debug');
+
+	debugButton.addEventListener("click", (event) => {
+		console.log("ボタンをクリックしました");
+		DebugCheckClear();
 	});
 
 	CountFood();
