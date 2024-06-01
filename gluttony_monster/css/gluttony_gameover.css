@@ -1,0 +1,91 @@
+.jacquard-12-regular {
+	font-family: "Jacquard 12", system-ui;
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+#title {
+	background-color: grey;
+}
+
+
+
+
+#titleCall {
+	margin-top: 250px;
+	text-align: center;
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 80px;
+}
+
+#gameInformation {
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	display: inline-block;
+	align-items: center;
+	justify-content: start;
+	margin-left: 5%;
+}
+
+#highScore {
+	font-size: 25px;
+}
+
+#yourScore {
+	font-size: 25px;
+}
+
+#gameButton {
+	text-align: center;
+}
+
+#continue {
+	background-color: #0000ff;
+	color: #FFFFFF;
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 30px;
+	text-align: center;
+	width: 150px;
+
+	border: none;
+	/* outline: none; */
+	margin: 0px 0px 0px 20%;
+}
+
+
+#goGame {
+	background-color: #0000ff;
+	color: #FFFFFF;
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 30px;
+	text-align: center;
+	width: 150px;
+
+	border: none;
+}
+
+p {
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	float: left;
+	font-size: 25px;
+}
+
+#quit {
+	background-color: #0000ff;
+	color: #FFFFFF;
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 30px;
+	text-align: center;
+	width: 150px;
+	border: none;
+	margin: 0px 20% 0px 0px;
+}
+
+#buttonSettings {
+	justify-content: center;
+	display: flex;
+	margin: auto;
+}

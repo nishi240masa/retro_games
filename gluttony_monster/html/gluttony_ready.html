@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/gluttony_ready.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Danfo&family=Jacquard+12&family=Jaro:opsz@6..72&family=Montserrat:wght@800&family=VT323&display=swap"
+		rel="stylesheet">
+	<title>GluttonyMonster</title>
+</head>
+
+<body>
+	<div id="header"></div>
+
+	<div id="allContents">
+		<div id="display">
+			<div id="gameScreen">
+				<canvas id="gameCanvas" width="600" height="600"></canvas>
+				<script src="../js/gluttony_ready.js"></script>
+			</div>
+		</div>
+		<div id="gameInfo">
+			<p id="gameScore">score:</p>
+			<p id="playerLife">life stock:3</p>
+		</div>
+	</div>
+	<div id="homeButton">
+		<button id="backToHome">戻る</button>
+	</div>
+	<script type="text/javascript" src="../../header/js/header.js"></script>
+	<script type="text/javascript" src="../../header/js/life.js"></script>
+	<script type="text/javascript" src="../../localStorage/js/localStorage.js"></script>
+	<script type="text/javascript" src="../js/gluttony_clear.js"></script>
+</body>
+
+</html>

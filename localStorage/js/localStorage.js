@@ -11,7 +11,6 @@ const score = [
     last_score: 0,
     high_score: 0,
   },
-
   {
     // ゲームID(2): シューティング
     game_id: 2,
@@ -29,7 +28,7 @@ const score = [
 const bleck_breaker = {
   // ゲームID(0): ブロック崩し
   game_id: 0,
-  score: [
+  bleck_score: [
     {
       id: 0,
       last_score: 0,
@@ -91,6 +90,8 @@ function initlocal() {
 
   // ブロック崩しのスコアの初期化
   initBleckBreakerScore();
+
+  console.log("初期化完了");
 }
 
 // ライフを減らす（使うな）
@@ -117,7 +118,6 @@ function plusLife() {
 function getLife() {
   if (localStorage.getItem("life") == null) {
     initLife();
-
     return localStorage.getItem("life");
   }
 
@@ -127,18 +127,42 @@ function getLife() {
 // ライフの初期化
 function initLife() {
   localStorage.setItem("life", 5);
+  // エラー処理
+  if (localStorage.getItem("life") == null) {
+    console.error("lifeの初期化に失敗しました");
+    return;
+  }
 }
 
 // 全員のスコアの初期化
 function initScore() {
+  // 初期スコア配列のログ
+  console.log("初期スコア配列:");
+  console.log(score);
+
+  // スコア配列をJSON文字列に変換
   const scoreArray = JSON.stringify(score);
+  console.log("シリアライズされたスコア配列:");
+  console.log(scoreArray);
+
+  // ローカルストレージに保存
   localStorage.setItem("score", scoreArray);
+
+  // ローカルストレージから読み込み
+  console.log("ローカルストレージから読み込んだスコア:");
+  console.log(localStorage.getItem("score"));
+
+  // エラー処理
+  if (localStorage.getItem("score") == null) {
+    console.error("scoreの初期化に失敗しました");
+    return;
+  }
 }
 
 // ブロック崩しのスコアを初期化
 function initBleckBreakerScore() {
-  const scoreArray = JSON.stringify(bleck_breaker.score);
-  localStorage.setItem("score", scoreArray);
+  const bleckScoreArray = JSON.stringify(bleck_breaker.bleck_score);
+  localStorage.setItem("bleck_score", bleckScoreArray);
 }
 
 // 個別でスコアを初期化
@@ -156,7 +180,7 @@ function initPersonal(game_id) {
 }
 
 // scoreをセット
-function setScore(game_id, score) {
+function setScore(game_id, scoreValue) {
   // エラー処理
   if (game_id < 0 || game_id >= score.length) {
     console.error("game_idが不正です");
@@ -172,10 +196,10 @@ function setScore(game_id, score) {
   let last_score = scoreArray[game_id].last_score;
   let high_score = scoreArray[game_id].high_score;
 
-  last_score = score;
+  last_score = scoreValue;
 
-  if (score > high_score) {
-    high_score = score;
+  if (scoreValue > high_score) {
+    high_score = scoreValue;
   }
 
   console.log("last_score: " + last_score);
@@ -183,21 +207,21 @@ function setScore(game_id, score) {
 }
 
 // ブロック崩しのスコアをセット
-function setBleckBreakerScore(id, score) {
+function setBleckBreakerScore(id, scoreValue) {
   // エラー処理
-  if (id < 0 || id >= bleck_breaker.score.length) {
+  if (id < 0 || id >= bleck_breaker.bleck_score.length) {
     console.error("game_idが不正です");
     return;
   }
 
-  let scoreArray = JSON.parse(localStorage.getItem("score"));
+  const scoreArray = JSON.parse(localStorage.getItem("bleck_score"));
   let last_score = scoreArray[id].last_score;
   let high_score = scoreArray[id].high_score;
 
-  last_score = score;
+  last_score = scoreValue;
 
-  if (score > high_score) {
-    high_score = score;
+  if (scoreValue > high_score) {
+    high_score = scoreValue;
   }
 
   console.log("last_score: " + last_score);
@@ -207,12 +231,12 @@ function setBleckBreakerScore(id, score) {
 // ブロック崩しのスコアを取得
 function getBleckBreakerScore(id) {
   // エラー処理
-  if (id < 0 || id >= bleck_breaker.score.length) {
+  if (id < 0 || id >= bleck_breaker.bleck_score.length) {
     console.error("game_idが不正です");
     return;
   }
 
-  let scoreArray = JSON.parse(localStorage.getItem("score"));
+  let scoreArray = JSON.parse(localStorage.getItem("bleck_score"));
   const score = {
     last_score: scoreArray[id].last_score,
     high_score: scoreArray[id].high_score,

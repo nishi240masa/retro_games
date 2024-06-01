@@ -1,6 +1,6 @@
 btn_gluttony = document.getElementById("btn_gluttony");
 btn_gluttony.addEventListener("click", function () {
-  window.location.href = "../../gluttony_monster/html/gluttony.html";
+  window.location.href = "/gluttony_monster/html/gluttony_main.html";
 });
 
 btn_fight = document.getElementById("btn_fight");
@@ -44,4 +44,17 @@ btn_removeLife.addEventListener("click", function () {
 
   // 画面を更新する(loadを行わずに)
   drawLife();
+});
+
+// ローカルストレージを消す
+btn_removeLocalStorage = document.getElementById("btn_removeLocalStorage");
+btn_removeLocalStorage.addEventListener("click", function () {
+  localStorage.clear();
+});
+
+// ローカルストレージをget
+btn_getLocalStorage = document.getElementById("btn_getLocalStorage");
+btn_getLocalStorage.addEventListener("click", function () {
+  console.log(localStorage.getItem("life"));
+  console.log(localStorage.getItem("score"));
 });
