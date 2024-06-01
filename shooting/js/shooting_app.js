@@ -27,7 +27,7 @@ const SPARK_HEIGHT = 28;
 // 弾丸のスピード
 const BULLET_SPEED = 8;
 
-//const game_score = getScore(2);
+const game_score = getScore(2);
  
 let $start = document.getElementById('start');
  
@@ -511,14 +511,13 @@ function DrawGameOver(){
     if(playCount==0){ //初回プレイ時のみテキストをスタートにする
         gameover = 'GAME START';
     }else{ //スコアをセットする
-        /*
+        
         setScore(2,shooting_score);
         if(shooting_score>50){
             addLife();
         }
         let last_score = game_score.last_score;
         ctx.fillText(last_score, x, 190);
-        */
     }
 
     ctx.fillText(gameover, x, 150);
@@ -541,12 +540,12 @@ function DrawScore(){
     ctx.fillText(playRule1_2, 90,50, 200);
     ctx.fillText(playRule2, 20,80, 200);
     ctx.fillText(playRule3, 20,110, 200);
-    /*
+    
     //スコア表示
     
     let high_score = 'high score:'+game_score.high_score ;
     ctx.fillText(high_score, 20,160, 200);
-    */
+    
     
 }
 
