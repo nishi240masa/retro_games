@@ -198,6 +198,12 @@ function setScore(game_id, scoreValue) {
 
   console.log("last_score: " + last_score);
   console.log("high_score: " + high_score);
+
+  // スコアをセット
+  scoreArray[game_id].last_score = last_score;
+  scoreArray[game_id].high_score = high_score;
+
+  localStorage.setItem("score", JSON.stringify(scoreArray));
 }
 
 // ブロック崩しのスコアをセット
@@ -220,6 +226,12 @@ function setBleckBreakerScore(id, scoreValue) {
 
   console.log("last_score: " + last_score);
   console.log("high_score: " + high_score);
+
+  // スコアをセット
+  scoreArray[id].last_score = last_score;
+  scoreArray[id].high_score = high_score;
+
+  localStorage.setItem("bleck_score", JSON.stringify(scoreArray));
 }
 
 // ブロック崩しのスコアを取得

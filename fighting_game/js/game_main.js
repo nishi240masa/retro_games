@@ -50,11 +50,11 @@ function stopKeys() {}
 
 // ゲームの初期化
 function init() {
+  initializeCharacters();
   player1.x = canvas.width - 250;
   player1.y = canvas.height - 50;
   player1.hp = 100;
   player1.attacks = [];
-
   enemy.x = canvas.width - 100;
   enemy.y = canvas.height - 50;
   enemy.hp = 100;
@@ -234,4 +234,5 @@ window.addEventListener("keyup", (e) => {
 });
 
 init();
+
 startCountdown();

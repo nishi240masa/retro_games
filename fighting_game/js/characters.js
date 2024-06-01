@@ -1,59 +1,106 @@
 // キャラクターの定義
-const player1 = {
-  x: canvas.width - 250,
-  y: canvas.height - 50,
-  width: 25,
-  height: 50,
-  speed: 5,
-  isJumping: false,
-  jumpStrength: 10,
-  velocityY: 0,
-  gravity: 0.5,
-  image: new Image(),
-  defenseImage: new Image(),
-  meleeImage: new Image(),
-  hp: 100,
-  attacks: [],
-  isInvincible: false,
-  invincibilityDuration: 800,
-  invincibilityTimer: 0,
-  isDefending: false,
-  facingLeft: false, // 向きの状態
-  isMeleeAttacking: false,
-  meleeAttackDuration: 300,
-  meleeAttackTimer: 0,
-};
-player1.image.src = "/fighting_game/imgs/player_1.svg";
-player1.defenseImage.src = "/fighting_game/imgs/player_defense1.svg";
-player1.meleeImage.src = "/fighting_game/imgs/melee_player1.png";
+let player1;
+let enemy;
 
-const enemy = {
-  x: canvas.width - 100,
-  y: canvas.height - 50,
-  width: 25,
-  height: 50,
-  speed: 5,
-  isJumping: false,
-  jumpStrength: 10,
-  velocityY: 0,
-  gravity: 0.5,
-  image: new Image(),
-  defenseImage: new Image(),
-  meleeImage: new Image(),
-  hp: 100,
-  attacks: [],
-  isInvincible: false,
-  invincibilityDuration: 800,
-  invincibilityTimer: 0,
-  isDefending: false,
-  facingLeft: false, // 向きの状態を変更
-  isMeleeAttacking: false,
-  meleeAttackDuration: 300,
-  meleeAttackTimer: 0,
-};
-enemy.image.src = "/fighting_game/imgs/enemy_2.svg";
-enemy.defenseImage.src = "/fighting_game/imgs/enemy_defense2.svg";
-enemy.meleeImage.src = "/fighting_game/imgs/melee_enemy2.png";
+// modeの取得
+const urlParams = new URLSearchParams(window.location.search);
+const difficulty = urlParams.get("mode");
+
+// キャラクターの初期設定
+function initializeCharacters() {
+  console.log("キャラクターの初期設定");
+  console.log(difficulty);
+
+  player1 = {
+    x: canvas.width - 250,
+    y: canvas.height - 50,
+    width: 25,
+    height: 50,
+    speed: 5,
+    isJumping: false,
+    jumpStrength: 10,
+    velocityY: 0,
+    gravity: 0.5,
+    image: new Image(),
+    defenseImage: new Image(),
+    meleeImage: new Image(),
+    hp: 100,
+    attacks: [],
+    isInvincible: false,
+    invincibilityDuration: 800,
+    invincibilityTimer: 0,
+    isDefending: false,
+    facingLeft: false, // 向きの状態
+    isMeleeAttacking: false,
+    meleeAttackDuration: 300,
+    meleeAttackTimer: 0,
+  };
+  player1.image.src = "/fighting_game/imgs/player_1.svg";
+  player1.defenseImage.src = "/fighting_game/imgs/player_defense1.svg";
+  player1.meleeImage.src = "/fighting_game/imgs/melee_player1.png";
+
+  enemy = {
+    x: canvas.width - 100,
+    y: canvas.height - 50,
+    width: 25,
+    height: 50,
+    speed: 5,
+    isJumping: false,
+    jumpStrength: 10,
+    velocityY: 0,
+    gravity: 0.5,
+    image: new Image(),
+    defenseImage: new Image(),
+    meleeImage: new Image(),
+    hp: 100,
+    attacks: [],
+    isInvincible: false,
+    invincibilityDuration: 800,
+    invincibilityTimer: 0,
+    isDefending: false,
+    facingLeft: false, // 向きの状態を変更
+    isMeleeAttacking: false,
+    meleeAttackDuration: 300,
+    meleeAttackTimer: 0,
+  };
+  enemy.image.src = "/fighting_game/imgs/enemy_2.svg";
+  enemy.defenseImage.src = "/fighting_game/imgs/enemy_defense2.svg";
+  enemy.meleeImage.src = "/fighting_game/imgs/melee_enemy2.png";
+
+  adjustDifficultySettings(difficulty); // 難易度によって敵のステータスを変更
+}
+
+// モードによって敵のステータスを変更
+function adjustDifficultySettings(difficulty) {
+  // エラー処理
+  if (difficulty === null) {
+    console.error("modeが指定されていません");
+    return;
+  }
+  switch (difficulty) {
+    case "easy":
+      console.log("easy");
+      enemy.speed = 3;
+      enemy.attackFrequency = 0.01;
+      enemy.meleeAttackFrequency = 0.015;
+      enemy.defendFrequency = 0.03;
+      break;
+    case "normal":
+      console.log("normal");
+      enemy.speed = 5;
+      enemy.attackFrequency = 0.02;
+      enemy.meleeAttackFrequency = 0.03;
+      enemy.defendFrequency = 0.05;
+      break;
+    case "hard":
+      console.log("hard");
+      enemy.speed = 7;
+      enemy.attackFrequency = 0.04;
+      enemy.meleeAttackFrequency = 0.06;
+      enemy.defendFrequency = 0.1;
+      break;
+  }
+}
 
 // キャラクターの描画
 function drawCharacter(character) {
