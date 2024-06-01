@@ -1,0 +1,125 @@
+@font-face {
+	font-family: "retroFontText";
+	src: url("../css/Tra-Gothic.ttf") format("truetype");
+  }
+
+  @font-face {
+	font-family: "retroFontTitle";
+	src: url("../css/Bansyu-retoromin-R_ver.3.2.otf") format("opentype");
+  }
+
+  @font-face {
+	font-family: "dotFont";
+	src: url("../css/madoufmg.ttf") format("truetype");
+  }
+
+
+/* ボタンスタイル */
+.button {
+	background-color:gray; /* グリーン */
+	border: none;
+	color: white;
+	padding: 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 2px 2px;
+	cursor: pointer;
+	border-radius: 50%; /* ボタンを正円にする */
+	position: fixed;
+	top: 100px;
+	right: 20px; /* 右端に配置 */
+	transform: translateY(-50%);
+	width: 50px; /* ボタンの幅 */
+	height: 50px; /* ボタンの高さ */
+	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button:hover {
+    background-color: rgb(80, 79, 79);
+}
+/* モーダルスタイル */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+	overflow: hidden;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%; 
+	height: 60%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalTitle {
+	text-align: center;
+	font-size: 35px;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	margin-bottom: 20px;
+}
+
+.modalText {
+	font-family: 'dotFont','retroFontText','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	margin-bottom: 5px;
+}
+
+.rainbowText {
+    background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow 5s linear infinite;
+	font-size: 30px;
+	text-align: center;
+}
+
+@keyframes rainbow {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+#modalTextBox {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.player, .enemy {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.enemy img {
+    margin: 0 5px;
+}

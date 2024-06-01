@@ -4,6 +4,7 @@ body {
 
 #title {
 	background-color: grey;
+	height: 90vh;
 }
 
 #gameScreen {
@@ -34,18 +35,18 @@ canvas {
 	margin-left: 5%;
 }
 
-#backToHome {
-	background-color: #0000ff;
-	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 20px;
-	text-align: center;
-	width: 100px;
-
-	border: none;
-	/* outline: none; */
-}
-
 p {
 	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.back {
+  
+	cursor: pointer;
+	margin-left: 5%;
+  }
+
+.back >  span {
+	margin-top:5px;
+  color: black;
+  font-size: 50px;
 }

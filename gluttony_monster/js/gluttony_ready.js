@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 
-	const button = document.querySelector('#backToHome');
+	const button = document.querySelector('#return');
 
 	button.addEventListener("click", (event) => {
 		console.log("ボタンをクリックしました");

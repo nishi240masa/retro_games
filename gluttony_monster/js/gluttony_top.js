@@ -11,11 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	backButton.addEventListener("click", (event) => {
 		console.log("ボタンをクリックしました");
-		const Hscore = document.querySelector("#highScore");
-		// ハイスコアをリセット
-		localStorage.setItem("highScore", 0);
-		Hscore.textContent = 0;
-		// location.href = '../html/gluttony_top.html';
+		 location.href = '../../main/html/index.html';
 	});
 
 
