@@ -239,6 +239,10 @@ function getBleckBreakerScore(id) {
     console.error("game_idが不正です");
     return;
   }
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("bleck_score") == null) {
+    initBleckBreakerScore();
+  }
 
   let scoreArray = JSON.parse(localStorage.getItem("bleck_score"));
   const score = {
@@ -256,6 +260,11 @@ function getScore(game_id) {
     console.error("game_idが不正です");
     return;
   }
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("score") == null) {
+    initPersonal(game_id);
+  }
+
   let scoreArray = JSON.parse(localStorage.getItem("score"));
   const score = {
     last_score: scoreArray[game_id].last_score,
