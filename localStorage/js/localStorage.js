@@ -1,8 +1,4 @@
-// test
-console.log("test");
-console.log("localStorage.js");
-
-const score = [
+const overallScore = [
   {
     // ゲームID(0): ブロック崩し
     game_id: 0,
@@ -140,10 +136,7 @@ function initLife() {
 
 // 全員のスコアの初期化
 function initScore() {
-  // スコア配列をJSON文字列に変換
-  const scoreArray = JSON.stringify(score);
-
-  // ローカルストレージに保存
+  const scoreArray = JSON.stringify(overallScore);
   localStorage.setItem("score", scoreArray);
 
   // エラー処理
@@ -162,7 +155,7 @@ function initBleckBreakerScore() {
 // 個別でスコアを初期化
 function initPersonal(game_id) {
   // エラー処理
-  if (game_id < 0 || game_id >= score.length) {
+  if (game_id < 0 || game_id >= overallScore.length) {
     console.error("game_idが不正です");
     return;
   }
@@ -176,7 +169,7 @@ function initPersonal(game_id) {
 // scoreをセット
 function setScore(game_id, scoreValue) {
   // エラー処理
-  if (game_id < 0 || game_id >= score.length) {
+  if (game_id < 0 || game_id >= overallScore.length) {
     console.error("game_idが不正です");
     return;
   }
@@ -254,7 +247,7 @@ function getBleckBreakerScore(id) {
 // scoreを取得
 function getScore(game_id) {
   // エラー処理
-  if (game_id < 0 || game_id >= score.length) {
+  if (game_id < 0 || game_id >= overallScore.length) {
     console.error("game_idが不正です");
     return;
   }
