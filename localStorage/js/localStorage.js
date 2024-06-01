@@ -140,21 +140,11 @@ function initLife() {
 
 // 全員のスコアの初期化
 function initScore() {
-  // 初期スコア配列のログ
-  console.log("初期スコア配列:");
-  console.log(score);
-
   // スコア配列をJSON文字列に変換
   const scoreArray = JSON.stringify(score);
-  console.log("シリアライズされたスコア配列:");
-  console.log(scoreArray);
 
   // ローカルストレージに保存
   localStorage.setItem("score", scoreArray);
-
-  // ローカルストレージから読み込み
-  console.log("ローカルストレージから読み込んだスコア:");
-  console.log(localStorage.getItem("score"));
 
   // エラー処理
   if (localStorage.getItem("score") == null) {
@@ -208,6 +198,12 @@ function setScore(game_id, scoreValue) {
 
   console.log("last_score: " + last_score);
   console.log("high_score: " + high_score);
+
+  // スコアをセット
+  scoreArray[game_id].last_score = last_score;
+  scoreArray[game_id].high_score = high_score;
+
+  localStorage.setItem("score", JSON.stringify(scoreArray));
 }
 
 // ブロック崩しのスコアをセット
@@ -230,6 +226,12 @@ function setBleckBreakerScore(id, scoreValue) {
 
   console.log("last_score: " + last_score);
   console.log("high_score: " + high_score);
+
+  // スコアをセット
+  scoreArray[id].last_score = last_score;
+  scoreArray[id].high_score = high_score;
+
+  localStorage.setItem("bleck_score", JSON.stringify(scoreArray));
 }
 
 // ブロック崩しのスコアを取得
