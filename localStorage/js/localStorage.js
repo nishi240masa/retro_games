@@ -1,3 +1,7 @@
+// test
+console.log("test");
+console.log("localStorage.js");
+
 const score = [
   {
     // ゲームID(0): ブロック崩し
