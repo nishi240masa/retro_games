@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-// test
-console.log("test");
-console.log("localStorage.js");
-
-const score = [
-=======
 const overallScore = [
->>>>>>> Stashed changes
   {
     // ゲームID(0): ブロック崩し
     game_id: 0,
@@ -144,14 +136,7 @@ function initLife() {
 
 // 全員のスコアの初期化
 function initScore() {
-<<<<<<< Updated upstream
-  // スコア配列をJSON文字列に変換
-  const scoreArray = JSON.stringify(score);
-
-  // ローカルストレージに保存
-=======
   const scoreArray = JSON.stringify(overallScore);
->>>>>>> Stashed changes
   localStorage.setItem("score", scoreArray);
 
   // エラー処理
