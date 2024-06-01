@@ -140,21 +140,11 @@ function initLife() {
 
 // 全員のスコアの初期化
 function initScore() {
-  // 初期スコア配列のログ
-  console.log("初期スコア配列:");
-  console.log(score);
-
   // スコア配列をJSON文字列に変換
   const scoreArray = JSON.stringify(score);
-  console.log("シリアライズされたスコア配列:");
-  console.log(scoreArray);
 
   // ローカルストレージに保存
   localStorage.setItem("score", scoreArray);
-
-  // ローカルストレージから読み込み
-  console.log("ローカルストレージから読み込んだスコア:");
-  console.log(localStorage.getItem("score"));
 
   // エラー処理
   if (localStorage.getItem("score") == null) {
