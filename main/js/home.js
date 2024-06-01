@@ -1,6 +1,6 @@
 btn_gluttony = document.getElementById("btn_gluttony");
 btn_gluttony.addEventListener("click", function () {
-  window.location.href = "/gluttony_monster/html/gluttony_main.html";
+  window.location.href = "/gluttony_monster/html/gluttony_top.html";
 });
 
 btn_fight = document.getElementById("btn_fight");
@@ -10,12 +10,12 @@ btn_fight.addEventListener("click", function () {
 
 btn_shooting = document.getElementById("btn_shooting");
 btn_shooting.addEventListener("click", function () {
-  window.location.href = "../../shooting/html/shooting.html";
+  window.location.href = "/shooting/html/shooting_main.html";
 });
 
 btn_breaking = document.getElementById("btn_breaking");
 btn_breaking.addEventListener("click", function () {
-  window.location.href = "../../breaking_blocks/html/breaking.html";
+  window.location.href = "/breaking_blocks/html/breaking_blocks_index.html";
 });
 
 // 最初に読み込んだ時にlocalsotrageの初期化を行う

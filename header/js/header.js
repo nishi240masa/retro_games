@@ -19,7 +19,7 @@ fetch("/header/html/header.html")
       } else if (url.includes("shooting")) {
         console.log("shooting_game");
         shootingGameTitle();
-      } else if (url.includes("block_breaker")) {
+      } else if (url.includes("breaking_blocks")) {
         console.log("block_breaker");
         blockBreakerTitle();
       } else {
