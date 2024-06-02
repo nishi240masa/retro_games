@@ -2,3 +2,7 @@
   font-family: "dotFont";
   src: url("./madoufmg.ttf") format("truetype");
 }
+
+* {
+  font-family: "dotFont";
+}
