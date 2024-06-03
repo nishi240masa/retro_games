@@ -89,7 +89,9 @@ const clickhome=(event)=>{
         changescreenState("stageselect");
     }else if(menu2.left<ex&&menu2.light>ex&&menu2.top<ey&&menu2.bottom>ey){
         changescreenState("level");
-    }    
+    }else if(menu3.left<ex&&menu3.light>ex&&menu3.top<ey&&menu3.bottom>ey){
+        changescreenState("help");
+    }      
 }
 const clicklevel=(event)=>{
     const ex = event.offsetX;
@@ -99,11 +101,16 @@ const clicklevel=(event)=>{
             levelstage('easy');
     }else if(menu2.left<ex&&menu2.light>ex&&menu2.top<ey&&menu2.bottom>ey){
             levelscreen('hard');
+    }else if(ex>=365&&ex<=395&&ey>=10&&ey<=40){
+        escapehome();
     }
 }
 const clickstage=(event)=>{
     const ex = event.offsetX;
     const ey = event.offsetY;
+    if(ex>=365&&ex<=395&&ey>=10&&ey<=40){
+        escapehome();
+    }
     for (let i=0;i<2;i++){
         for(let j=0;j<3;j++){
             if(ex>50+j*100&&ex<80+50+j*100&&ey>200+i*150&&ey<80+200+i*150){
@@ -151,23 +158,25 @@ function loadStorage(){
         HIscorestage[i]=getBleckBreakerScore(i+3).high_score;
     }
 }
+//window.location.href = "../../breaking_blocks/html/breaking.html";
 function setStorage(){
     setBleckBreakerScore(0,HIscorenormal)
     setBleckBreakerScore(1,HIscorehard)
-    localStorage.setItem('clearstage',clearstage);
-    localStorage.setItem('normal',HIscorenormal);
-    localStorage.setItem('hard',HIscorehard);
-    const HIscorestagestr=JSON.stringify(HIscorestage);
-    localStorage.setItem('stage',HIscorestagestr);
+    //localStorage.setItem('clearstage',clearstage);
+    //localStorage.setItem('normal',HIscorenormal);
+    //localStorage.setItem('hard',HIscorehard);
+    //const HIscorestagestr=JSON.stringify(HIscorestage);
+    //localStorage.setItem('stage',HIscorestagestr);
 }
 function clearStorage_bb(){
     clearstage=1;
-    HIscorenormal=0;
-    HIscorehard=0;
+    HIscorenormal=1;
+    HIscorehard=1;
     HIscorestage=[0,0,0,0,0,0];
-    //setStorage();
+    setStorage();
 }
-localStorage.clear();
+initBleckBreakerScore() 
+//localStorage.clear();
 //loadStorage();
 clearStorage_bb()
 updatescreen();

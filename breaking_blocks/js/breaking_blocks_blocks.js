@@ -1,7 +1,7 @@
 
 let blocks = [];
 let blocksCount = 0;
-
+let tenflag=0;
 
 const blockDictionary = {
 
