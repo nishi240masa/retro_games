@@ -10,6 +10,7 @@ function initMode(){
         time=99;
         dspeed=0.1;
         dscorex=0.05;
+        tenflag=0;
     }
     scorex=1.0;
     speed=cspeed;

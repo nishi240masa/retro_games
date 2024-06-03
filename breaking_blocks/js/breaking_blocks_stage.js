@@ -171,13 +171,15 @@ function selectstage(stage){
     changescreenState("game");
 }
 function updatestage(){
+    if(stagenum>9||tenflag!=0){
+        stagenum=Math.floor( Math.random() * 10 );
+    }
     blocksRowLength = stagenow[stagenum].length;
     blocksColumnLength = stagenow[stagenum][0].length;
     blockWidth = blocksAreaWidth / blocksColumnLength;
     blockHeight = (blocksAreaHeight-50) / blocksRowLength;
     balls=[];
     changeGameState('waiting');
-
     initBall();
     initBlocks();
     time+=10;

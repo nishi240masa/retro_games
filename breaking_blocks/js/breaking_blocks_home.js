@@ -10,11 +10,17 @@ const menu2={
     left:50,
     light:canvasWidth-50,
 }
+const menu3={
+    top:400,
+    bottom:450,
+    left:50,
+    light:canvasWidth-50,
+}
 function startscreen(){
     screenState='start'
     screendefalut();
-    messagescreenCtx.fillText("breakingblocks",50,240);
-    messagescreenCtx.fillText("click to start",50,340);
+    messagescreenCtx.fillText("breakingblocks",55,240);
+    messagescreenCtx.fillText("click to start",80,340);
 }
 function homescreen(){
     screenState='home'
@@ -31,7 +37,7 @@ function homescreen(){
 function helpscreen(){
     screenState='help'
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-    messagescreenCtx.fillStyle='blue'
+    messagescreenCtx.fillStyle='#333333'
     messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight)
     messagescreenCtx.fillStyle='white'
     messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
@@ -39,23 +45,26 @@ function helpscreen(){
     messagescreenCtx.font="40px serif";
     messagescreenCtx.fillText("help",150,40);
     messagescreenCtx.fillStyle='gray'
-    messagescreenCtx.fillRect(50, 400, canvasWidth-100, 50);
-
+    messagescreenCtx.fillRect(menu3.left, menu3.top, menu3.light-menu3.left, menu3.bottom-menu3.top)
 }
 function levelscreen(){
     screenState='level'
     screendefalut();
+    drawhomebutton();
+    messagescreenCtx.fillStyle='black'
     messagescreenCtx.fillText("score attack",110,50);
     messagescreenCtx.fillText("normal",130,240);
     messagescreenCtx.fillText("hard",140,340);
 }
 function selectstagescreen(){
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-    messagescreenCtx.fillStyle='blue'
+    messagescreenCtx.fillStyle='#333333'
     messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight)
     messagescreenCtx.fillStyle='white'
     messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
+    drawhomebutton();
     messagescreenCtx.fillStyle='black'
+    
     messagescreenCtx.font="40px serif";
     messagescreenCtx.fillText("stage",150,40);
     for (let i=0;i<2;i++){
@@ -75,7 +84,7 @@ function selectstagescreen(){
 function resultscreen(){
     barBallsCtx.clearRect(0, 0, canvasWidth, canvasHeight);
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-    messagescreenCtx.fillStyle='blue';
+    messagescreenCtx.fillStyle='#333333';
     messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight) 
     messagescreenCtx.fillStyle='gray';
     messagescreenCtx.fillRect(20, 70, canvasWidth-40, canvasHeight-90)
@@ -138,7 +147,7 @@ function resultscreen(){
 function screendefalut(){
     barBallsCtx.clearRect(0,0,canvasWidth,canvasHeight);
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-    messagescreenCtx.fillStyle='blue'
+    messagescreenCtx.fillStyle='#333333'
     messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight)
     messagescreenCtx.fillStyle='white'
     messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
@@ -163,6 +172,8 @@ function removeevent(){
             barBallsCanvas.removeEventListener("click", clickresult);
         }else if(screenState==='start'){
             barBallsCanvas.removeEventListener("click",clickstart);
+        }else if(screenState==='help'){
+            barBallsCanvas.removeEventListener("click",clickhelp);
         }
 }
 function updatescreen(){
@@ -186,6 +197,9 @@ function updatescreen(){
         }else if(screenState==='start'){
             barBallsCanvas.addEventListener("click",clickstart);
             startscreen();
+        }else if(screenState==='help'){
+            barBallsCanvas.addEventListener("click",clickhelp);
+            helpscreen();
         }
 }
 function drawhomebutton(){
@@ -194,6 +208,7 @@ function drawhomebutton(){
     barBallsCtx.fillStyle='red';
     barBallsCtx.fillRect(365, 10, 30, 30);
     barBallsCtx.fillStyle='black';
+    barBallsCtx.font="40px serif";
     barBallsCtx.fillText("×",367,38); 
 }
 function escapehome(){
