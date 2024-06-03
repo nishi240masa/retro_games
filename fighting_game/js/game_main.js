@@ -102,6 +102,8 @@ function gameClear() {
   // スコアをローカルストレージに保存
   setScore(3, current_score);
 
+  
+
   stopKeys();
 }
 
