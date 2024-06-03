@@ -37,11 +37,20 @@ body {
   padding-top: 50px;
   padding-left: 30px;
   h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 10px;
     color: white;
     font-size: 30px;
     background-color: gray;
     padding: 10px;
+  }
+  p {
+    padding-top: 20px;
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
   }
 }
 
@@ -62,10 +71,9 @@ body {
   height: 50px;
 
   position: absolute;
-  top: 0;
-  right: 60%;
+  top: 15%;
   bottom: 0;
-  left: 40%;
+  left: 43%;
   margin: auto;
 
   a {
@@ -75,7 +83,8 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: gray;
+    background-color: none;
+    border: 2px solid white;
     padding: 10px;
     border-radius: 10px;
   }
