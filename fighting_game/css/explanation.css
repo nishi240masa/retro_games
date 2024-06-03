@@ -10,6 +10,8 @@ body {
 }
 
 .instructions {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-left: 20px;
   border: 2px solid white;
@@ -57,15 +59,28 @@ body {
   font-size: 20px;
   margin: 10px;
   padding: 10px;
+  h1 {
+    font-size: 40px;
+    padding: 10px;
+    display: flex;
+  }
 }
 
-.defend {
+.defense {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 
   font-size: 20px;
   margin: 10px;
   padding: 10px;
+
+  h1 {
+    font-size: 40px;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
 }
 
 .key_block {
