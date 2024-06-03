@@ -37,11 +37,20 @@ body {
   padding-top: 50px;
   padding-left: 30px;
   h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 10px;
     color: white;
     font-size: 30px;
     background-color: gray;
     padding: 10px;
+  }
+  p {
+    padding-top: 20px;
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
   }
 }
 
@@ -63,9 +72,8 @@ body {
 
   position: absolute;
   top: 15%;
-  right: 60%;
   bottom: 0;
-  left: 40%;
+  left: 43%;
   margin: auto;
 
   a {

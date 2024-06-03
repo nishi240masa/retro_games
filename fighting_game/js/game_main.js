@@ -7,12 +7,13 @@ let gameTime = 180;
 let gameTimeInterval;
 
 // スコアの初期設定
-let fighting_score = 0;
+let current_score = 0;
 
 // closeボタンを作成
 function close() {
   const close = document.getElementById("close");
   close.innerHTML = `<a href="/fighting_game/html/fighting_mode.html">戻る</a>`;
+  console.log("close");
 }
 
 // scoreの計算
@@ -20,9 +21,9 @@ function close() {
 function calculateScore() {
   const timeScore = (180 - gameTime) * 10; // 残り時間のスコア
   const hpScore = player1.hp * 20; // 残りHPのスコア
-  fighting_score = timeScore + hpScore;
+  current_score = timeScore + hpScore;
   console.log("スコア計算");
-  console.log(fighting_score);
+  console.log(current_score);
 }
 
 // player1のHPを描画
@@ -93,13 +94,13 @@ function gameClear() {
   ctx.fillText("You Win!", canvas.width / 2 - 60, canvas.height / 2 - 20);
   calculateScore(); // スコアの計算
   ctx.fillText(
-    `Score: ${fighting_score}`,
+    `Score: ${current_score}`,
     canvas.width / 2 - 80,
     canvas.height / 2 + 20
   ); // スコアの描画
 
   // スコアをローカルストレージに保存
-  
+  setScore(3, current_score);
 
   stopKeys();
 }

@@ -18,7 +18,13 @@
       <div id="header"></div>
       <div class="main">
         <div class="mode">
-          <h1>normal</h1>
+          <div class="title">
+            <h1>normal</h1>
+          </div>
+          <div class="score">
+            <p>lastScore: <span id="lastScore">0</span></p>
+            <p>highScore: <span id="highScore">0</span></p>
+          </div>
         </div>
         <canvas id="gameCanvas" class="canvas"></canvas>
         <div id="close" class="close"></div>
@@ -34,6 +40,7 @@
 
     <script src="../../js/fighting_normal.js"></script>
     <script src="../../../header/js/header.js"></script>
+    <script src="../../../localStorage/js/localStorage.js"></script>
     <script src="../../js/explanation.js"></script>
 
     <script src="../../js/canvas.js"></script>
@@ -41,5 +48,6 @@
     <script src="../../js/characters.js"></script>
     <script src="../../js/cpu.js"></script>
     <script src="../../js/game_main.js"></script>
+    <script src="../../js/score.js"></script>
   </body>
 </html>
