@@ -51,7 +51,9 @@
 .titele_box {
   color: #333;
   position: absolute;
+  top: 0;
   right: 50%;
+  margin-top: 15px;
   transform: translateX(50%);
   background-color: gray;
 }

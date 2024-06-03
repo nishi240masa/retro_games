@@ -53,7 +53,7 @@ function drawGameTime() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "white";
-  ctx.font = "10px Arial";
+  ctx.font = "10px dotFont";
   // 残り時間を描画
   // 中央揃え
   ctx.fillText(`Time: ${gameTime}s`, canvas.width / 2 - 25, 20);
@@ -80,7 +80,7 @@ function gameOver() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "white";
-  ctx.font = "30px Arial";
+  ctx.font = "30px dotFont";
   ctx.fillText("Game Over", canvas.width / 2 - 80, canvas.height / 2);
   stopKeys();
 }
@@ -127,7 +127,7 @@ function drawCountdown() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "white";
-  ctx.font = "60px Arial";
+  ctx.font = "60px dotFont";
   ctx.fillText(countdown, canvas.width / 2 - 10, canvas.height / 2 + 10);
 }
 

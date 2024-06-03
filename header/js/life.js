@@ -2,6 +2,7 @@
 
 //ライフの描画
 function drawLife() {
+  console.log("drawLife");
   //ライフをstring型に変換して取得
   const life = getLife().toString();
 
@@ -15,7 +16,9 @@ function drawLife() {
 
   // life IDの中身にspanタグを追加
   lifeElement.innerHTML = span.repeat(life);
+  console.log("life");
   console.log(life);
+  console.log("5 - life");
   console.log(5 - life);
   nonelifeElement.innerHTML = span.repeat(5 - life);
 }
