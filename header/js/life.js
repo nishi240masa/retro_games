@@ -8,22 +8,16 @@ function drawLife() {
   //ライフの表示
   // life IDを取得
   const lifeElement = document.getElementById("life");
-  // life_count IDを取得
-  const lifeCount = document.getElementById("life_count");
+  const nonelifeElement = document.getElementById("none_life");
 
   //   spanタグの中身
   const span = `<span class="material-symbols-outlined"> favorite </span>`;
 
   // life IDの中身にspanタグを追加
   lifeElement.innerHTML = span.repeat(life);
-
-  // lifeの型を確認
-  console.log("life");
-  console.log(typeof life);
   console.log(life);
-
-  // life_countの中身にlifeの数を追加
-  lifeCount.innerText = life;
+  console.log(5 - life);
+  nonelifeElement.innerHTML = span.repeat(5 - life);
 }
 
 // load時にライフを描画

@@ -31,12 +31,30 @@
       </button>
     </div>
 
-    <main>
+    <main class="main">
       <div class="start">
         <button class="start_btn" id="btn_fight">格ゲー</button>
         <button class="start_btn" id="btn_shooting">シューティング</button>
         <button class="start_btn" id="btn_breaking">ブロック崩し</button>
         <button class="start_btn" id="btn_gluttony">グラモン</button>
+      </div>
+      <!-- 説明pop -->
+      <div id="popup" class="popup">
+        <h2>説明</h2>
+        <p>このサイトでは、レトロな4つのゲームを遊ぶことができます。</p>
+        <p>
+          各ゲームで特定の条件をクリアすると、ライフが1つ増えますが、ゲームオーバーになるとライフが減ってしまいます。
+        </p>
+        <p>
+          ライフが0になると、全てのゲームのスコア記録が消えてしまうので、注意が必要です。最大ライフは5で、左上のライフ表示で確認することができます。
+        </p>
+        <p>
+          各ゲームの詳細については、それぞれのゲームのページをご覧ください。
+        </p>
+        <p>それでは、ゲームを存分に楽しんでください！</p>
+        <input type="checkbox" id="check_popup" class="check_popup" />
+        <label for="check_popup">次回から表示しない</label>
+        <button id="btn_close_popup" class="btn_close_popup">閉じる</button>
       </div>
     </main>
 

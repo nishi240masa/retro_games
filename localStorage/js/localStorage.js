@@ -79,6 +79,8 @@ const bleck_breaker = {
 
 const life = 5;
 
+const check = "false";
+
 // 最初に実行（使うな）
 function initlocal() {
   // localStorageに接続できるか確認
@@ -91,7 +93,19 @@ function initlocal() {
   // ブロック崩しのスコアの初期化
   initBleckBreakerScore();
 
+  // checkの初期化
+  initCheck();
+
   console.log("初期化完了");
+}
+// checkの初期化
+function initCheck() {
+  localStorage.setItem("check", check);
+  // エラー処理
+  if (localStorage.getItem("check") == null) {
+    console.error("checkの初期化に失敗しました");
+    return;
+  }
 }
 
 // ライフを減らす（使うな）
@@ -170,6 +184,23 @@ function initPersonal(game_id) {
   localStorage.setItem("score", JSON.stringify(scoreArray));
 }
 
+// checkのセット
+function setCheck(checkValue) {
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("check") == null) {
+    initCheck();
+  }
+  if (checkValue === "true" || checkValue === "false") {
+    console.log("setCheck");
+    console.log(checkValue);
+    localStorage.setItem("check", checkValue);
+    return;
+  } else {
+    console.error("checkValueが不正です");
+    return;
+  }
+}
+
 // scoreをセット
 function setScore(game_id, scoreValue) {
   // エラー処理
@@ -234,6 +265,17 @@ function setBleckBreakerScore(id, scoreValue) {
   scoreArray[id].high_score = high_score;
 
   localStorage.setItem("bleck_score", JSON.stringify(scoreArray));
+}
+
+// チェックの取得
+function getCheck() {
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("check") == null) {
+    initCheck();
+  }
+  console.log("getCheck");
+  console.log(localStorage.getItem("check"));
+  return localStorage.getItem("check");
 }
 
 // ブロック崩しのスコアを取得

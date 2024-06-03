@@ -32,6 +32,20 @@
   span {
     color: red;
   }
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+}
+.none_life {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    color: red;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
 }
 
 .titele_box {

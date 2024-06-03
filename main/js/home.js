@@ -28,6 +28,42 @@ window.addEventListener("load", () => {
   }
 });
 
+// popupの表示
+let check_popup = getCheck();
+window.addEventListener("load", () => {
+  console.log("popupの状態を確認");
+  console.log(check_popup);
+  if (check_popup === "false") {
+    console.log("popup表示");
+    document.getElementById("popup").style.display = "block";
+  } else if (check_popup === "true") {
+    console.log("popup非表示");
+    document.getElementById("popup").style.display = "none";
+  } else {
+    console.error("popupの値がおかしいです");
+    console.error(check_popup);
+    console.error(typeof check_popup);
+  }
+});
+
+// popupを閉じる
+popup_close = document.getElementById("btn_close_popup");
+popup_close.addEventListener("click", function () {
+  document.getElementById("popup").style.display = "none";
+});
+
+// チェックボックスの値を取得
+const checkBox = document.getElementById("check_popup");
+checkBox.addEventListener("change", function () {
+  if (checkBox.checked) {
+    setCheck("true");
+  } else {
+    setCheck("false");
+  }
+
+  console.log(check_popup);
+});
+
 // デバック用
 // addLLife
 btn_addLife = document.getElementById("btn_addLife");
