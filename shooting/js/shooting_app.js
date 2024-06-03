@@ -9,7 +9,7 @@ const numericHeightValue = parseFloat(heightValue);
 
 // 画面の幅と高さ
 const FIELD_WIDTH = numericWidthValue;
-const FIELD_HEIGHT = numericHeightValue;
+const FIELD_HEIGHT = numericHeightValue-100;
 
 // 自機、敵、弾丸の幅と高さ
 const PLAYER_WIDTH = 44;
@@ -27,7 +27,7 @@ const SPARK_HEIGHT = 28;
 // 弾丸のスピード
 const BULLET_SPEED = 8;
 
-const game_score = getScore(2);
+let game_score = getScore(2);
  
 let $start = document.getElementById('start');
  
@@ -498,28 +498,54 @@ function Draw(){
     // スコアの描画
     DrawScore();
 }
+
+let firstLoop ;
+
 function DrawGameOver(){
     // ゲームオーバー時ではないなら何もしない
     let gameover = 'GAME OVER';
     if(isPlaying){
         return;
     }
-    ctx.fillStyle="#fff";
-    ctx.font="30px VT323";
-    let x = (FIELD_WIDTH - ctx.measureText(gameover).width) / 2; // 中央に表示するためのx座標を取得する
+    ctx.fillStyle="#ff0000";
+    ctx.font="50px VT323";
+   
 
     if(playCount==0){ //初回プレイ時のみテキストをスタートにする
+        ctx.fillStyle="#fff";
         gameover = 'GAME START';
     }else{ //スコアをセットする
-        
-        setScore(2,shooting_score);
-        if(shooting_score>50){
-            addLife();
-        }
-        let last_score = game_score.last_score;
-        ctx.fillText(last_score, x, 190);
-    }
+       
+        if(firstLoop==0){
+            if(shooting_score>50){
+                addLife();
+            }
+            setScore(2,shooting_score);
+            game_score = getScore(2); //再度取得　これがないとlastもhighも更新されない
 
+            firstLoop++;
+        }
+
+        //lastScore表示
+        let last_score = "score:  " + game_score.last_score;
+        let x = (FIELD_WIDTH - ctx.measureText(last_score).width) / 2; // 中央に表示するためのx座標を取得する
+        ctx.fillText(last_score, x-40,200, 200); //：がGAME　と　OVER の間に来るよう調節
+
+        if(shooting_score>=10){ //ボーナスライフ取得時の表示
+            ctx.fillStyle="#ffa500";
+            let bonusLife = "bonus:   +1";
+            let bonusHeart = "♡";
+            ctx.fillText(bonusLife, x-40,240, 250);
+            ctx.font="25px VT323";
+            ctx.fillText(bonusHeart, x+113,260, 250);
+
+            //gameover表示のためにサイズと色を戻す
+            ctx.fillStyle="#ff0000";
+            ctx.font="50px VT323";
+        }
+        
+    }
+    let x = (FIELD_WIDTH - ctx.measureText(gameover).width) / 2; // 中央に表示するためのx座標を取得する
     ctx.fillText(gameover, x, 150);
 }
 
@@ -527,26 +553,26 @@ function DrawScore(){
     
     let text = shooting_score.toString().padStart( 5, '0'); // スコアが4桁以下のときは左0埋めして5桁にする
     ctx.fillStyle="#fff";
-    ctx.font="30px VT323";
+    ctx.font="50px VT323";
     ctx.textBaseline="top";
     ctx.fillText(text, 20, 10);
     //ルール
+    ctx.font="30px VT323";
+    ctx.fillStyle="#b0c4de";
     let playRule1 = 'space:';
     let playRule1_2 = '発射';
     let playRule2 = '十字キー:操作';
-    let playRule3 = 'スコア50以上でハート+1';
-    ctx.fillText(playRule1, 20,45, 200);
+    let playRule3 = 'スコア50以上でライフ+1';
+    ctx.fillText(playRule1, 20,60, 200);
     ctx.font="24px VT323";
-    ctx.fillText(playRule1_2, 90,50, 200);
-    ctx.fillText(playRule2, 20,80, 200);
-    ctx.fillText(playRule3, 20,110, 200);
-    
-    //スコア表示
-    
+    ctx.fillText(playRule1_2, 90,65, 200);
+    ctx.fillText(playRule2, 20,95, 200);
+    ctx.fillText(playRule3, 20,125, 200);
+    //ハイスコア表示
+    ctx.fillStyle="#ffd700";
+    ctx.font="50px VT323";
     let high_score = 'high score:'+game_score.high_score ;
-    ctx.fillText(high_score, 20,160, 200);
-    
-    
+    ctx.fillText(high_score, 20,250, 200);
 }
 
 function Start(){
@@ -559,12 +585,14 @@ function Start(){
     playerX = FIELD_WIDTH / 2;
     playerY = FIELD_HEIGHT * 0.85;
 
-    //removeLife();
-    addLife();
+    removeLife();
+    //addLife();
+    //initPersonal(2); //ローカルストレージのスコアリセット　デバック用
  
     // スコアをリセットしてプレイ中のフラグを立てる
     shooting_score = 0;
     isPlaying = true;
+    firstLoop = 0;
  
     // ゲーム開始ボタンを非表示にする
     $start.style.display = 'none';
@@ -581,7 +609,9 @@ function Start(){
     }
     playCount++;
 
-    //console.log(playCount);
+
+
+    console.log(playCount);
 
     // BGMの再生開始
     //bgm.currentTime = 0;
