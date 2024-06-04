@@ -1,6 +1,6 @@
 body {
 	background-color: #FFFFFF;
-	height: 90vh;
+	overflow: hidden;
 }
 
 #title {
@@ -25,19 +25,78 @@ body {
 canvas {
 	border: 5px solid black;
 	border: none;
-	background-color: #000000;
+	background-color: #252121;
 }
 
 #gameInfo {
-	display: inline-block;
-	width: 20%;
+    display: flex;
+    flex-direction: column;
 	align-content: center;
 	font-size: 40px;
 	margin-left: 5%;
 }
 
+#scoreAndLife {
+	margin-top: 200px;
+}
+#keyExplanation {
+	margin-top: 150px;
+    flex: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+	height: 50px;
+	margin:auto;
+	margin-top: 160px;
+}
+
+#keyExplanation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 5px; 
+}
+
+#W {
+    grid-column: 2; 
+    grid-row: 1; 
+}
+#A {
+    grid-column: 1; 
+    grid-row: 2; 
+}
+
+#S {
+    grid-column: 2; 
+    grid-row: 2; 
+}
+
+#D {
+    grid-column: 3; 
+    grid-row: 2; 
+}
+
+/* キースタイル */
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(219, 219, 219);
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.move {
+	margin-top: 10px;
+	text-align: center;
+	margin: auto;
+	margin-top: 10px;
+}
+
 p {
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .back {
@@ -54,7 +113,7 @@ p {
 
 #debug { 
 	position: absolute;
-	top: 0;
+	top: 60px;
 	left: 0;
 	background-color: blue;
 	font-size: 50px;

@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/gluttony_top.css" />
+    <link rel="stylesheet" type="text/css" href="../../font/font.css" />
     <link rel="stylesheet" type="text/css" href="../css/gluttony_popupWindow.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,23 +24,25 @@
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2 id="modalTitle">遊び方</h2>
-            <p class="modalText">このゲームでは、キーボードのW、A、S、Dキーを使って猫を操作します。</p>
-            <p class="modalText">敵の動きに気をつけながら、マップ上のエサを集めましょう。</p>
-            <p class="modalText">エサを全て集めると、次のレベルに進むことができます。</p>
-            <p class="modalText">敵に3回ぶつかるとゲームオーバーになってしまいますので、注意してください。</p>
-            <p class="modalText rainbowText">Good Luck!</p>
+            <div class="modal-contentBox">
+                <span class="close" id="closeModal">&times;</span>
+                <h2 id="modalTitle">遊び方</h2>
+                <p class="modalText">このゲームでは、キーボードのW、A、S、Dキーを使って猫を操作します。</p>
+                <p class="modalText">マップを徘徊する敵に気をつけながら、マップ上に落ちているエサを集めましょう。</p>
+                <p class="modalText">エサを全て集めると、次のレベルに進むことができます。</p>
+                <p class="modalText">敵に3回ぶつかるとゲームオーバーになってしまいますので、注意してください。</p>
+                <p class="modalText rainbowText">Good Luck!</p>
+            </div>
             <div id="modalTextBox">
                 <div class="player">
-                    <img src="../images/playerImageDefaultS.png" alt="playerImage" />
-                    <p class="modalText">プレイヤー</p>
+                    <p class="modalText playerText">プレイヤー</p>
+                    <img class="playerImg" src="../images/playerImageDefaultS.png" alt="プレイヤーの画像">
                 </div>
                 <div class="enemy">
-                    <img src="../images/enemy1ImageS.png" alt="enemy1Image" />
-                    <img src="../images/enemy2ImageS.png" alt="enemy2Image" />
-                    <img src="../images/enemy3ImageS.png" alt="enemy3Image" />
-                    <p class="modalText">敵</p>
+                    <p class="modalText enemyText">敵</p>
+                    <img class="enemyImg" src="../images/enemy1ImageS.png" alt="敵1の画像">
+                    <img class="enemyImg" src="../images/enemy2ImageS.png" alt="敵2の画像">
+                    <img class="enemyImg" src="../images/enemy3ImageS.png" alt="敵3の画像">
                 </div>
             </div>
         </div>
@@ -49,7 +52,6 @@
         <h2 id="titleCall">GLUTTONY MONSTER</h2>
     </div>
     <div id="gameInformation">
-        <p>High Score:</p>
         <p id="highScore"></p>
     </div>
     <div id="buttonSettings">

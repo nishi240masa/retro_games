@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	let intervalTime = 300;//処理のインターバルを設定する変数
 	let clearScreen = 0;//クリア時の画面を暗くさせる
 	let mainInterval;
-
+	let pauseEnemies = false; // 敵の動きを一時停止するフラグ
+	let pausePlayer = false; // プレイヤーの動きを一時停止するフラグ
 
 
 	function Main() {
@@ -149,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		mainInterval = setInterval(Draw, intervalTime);//"intervalTime"ms後にDrawを再実行}
 	}
 
+
+	//マップ上に落ちている餌の数を数えその数をクリアの条件にする
 	function CountFood() {
 		for (let i = 0; i < mazeflag.length; i++) {
 			for (let j = 0; j < mazeflag[i].length; j++) {
@@ -186,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	//プレイヤーを動かす
 function movePlayer(){
+	if(pausePlayer)return;
 	const direction = player.direction; // 現在のプレイヤーの移動している方向を保存
 	let newDx = player.dx;
 	let newDy = player.dy;
@@ -215,6 +219,7 @@ function DrawPlayer() {
 }
 
 	function moveEnemy(enemy) {
+		if (pauseEnemies) return; // 敵の動きが一時停止されている場合は何もしない
 		let newDx = enemy.dx;
 		let newDy = enemy.dy;
 
@@ -233,7 +238,9 @@ function DrawPlayer() {
 		}
 	}
 
+	//プレイヤーを追跡するように敵を動かす
 	function moveEnemyChase(enemy) {
+		if (pauseEnemies) return; // 敵の動きが一時停止されている場合は何もしない
         let directions = [0, 0, 0, 0]; // [W, A, S, D]
         let newDx = enemy.dx;
         let newDy = enemy.dy;
@@ -347,6 +354,7 @@ function DrawPlayer() {
 				if (clearScreen > canvas.height) {
 					clearInterval(interval); // インターバルをクリア
 					addLife();
+					addLife();
 					setScore(1, score);
 					location.href = '../html/gluttony_clear.html'; // クリア画面に遷移
 				}
@@ -357,15 +365,31 @@ function DrawPlayer() {
 
 	//全ての餌を食べられたかどうかを判定し、クリアしていたら画面を遷移する
 	function DebugCheckClear() {
-		score = 2000;
-		addLife();
-		setScore(1, score);
-		location.href = '../html/gluttony_clear.html'; // クリア画面に遷移
+
+		number = Math.floor(Math.random() * 2000) + 1;
+		console.log("スコアを" + number + "に設定");
+
+			// ゲームループを停止
+			clearInterval(mainInterval);
+	
+			// 画面を少しずつ黒くする
+			const interval = setInterval(() => {
+				ctx.clearRect(0, 0, canvas.width, clearScreen);
+				clearScreen += 10; // クリアする範囲を少しずつ増やす
+				console.log("画面クリアしている");
+	
+				if (clearScreen > canvas.height) {
+					clearInterval(interval); // インターバルをクリア
+					addLife();
+					setScore(1, number);
+					location.href = '../html/gluttony_clear.html'; // クリア画面に遷移
+				}
+			}, 50); // 50msごとに実行
 	}
 
 
-
-	function CheckGameover() {//ゲームオーバーかどうかを判定する
+//ゲームオーバーかどうかを判定する
+	function CheckGameover() {
 
 		if (player.life >= 1) {//lifeが0になったらゲームオーバーにする
 
@@ -385,13 +409,46 @@ function DrawPlayer() {
 
 
 
-		//敵と衝突した場合にプレイヤーの1をリセットする
+	//敵と衝突した場合にプレイヤーの1をリセットする
 	function resetPlayer() {
-		player.dx = Math.ceil(cellWidth * 11);
+		player.dx = Math.ceil(cellWidth * 11 - cellWidth);
 		player.dy = Math.ceil(cellHeight * 20);
-		player.direction  = 2;
-}
+		player.direction = 2;
+		restart();
+	}
+		function restart() {
+			pauseEnemies = true; // 敵の動きを一時停止する
+			pausePlayer = true; // プレイヤーの動きを一時停止する
+			let countdown = 3;
+			
+			const countdownInterval = setInterval(() => {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				DrawMazes();
+				DrawPlayer();
+				DrawEnemies();
+			
+				ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; // 半透明の黒背景を描画
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+			
+				ctx.fillStyle = 'white'; // カウントダウンテキストの色
+				ctx.font = '70px dotFont'; // フォント設定
+				ctx.textAlign = 'center'; // テキストを中央揃え
+				if(countdown >= 1)ctx.fillText(countdown, canvas.width / 2, canvas.height / 2); // カウントダウンを描画
+				if(countdown === 0)ctx.fillText('Ready!', canvas.width / 2, canvas.height / 2)
+				countdown--;
+			
+				if (countdown < 0) {
+					clearInterval(countdownInterval); // カウントダウンが終了したらインターバルをクリア
+					pauseEnemies = false; // 敵の動きを再開する
+					pausePlayer = false;//　プレイヤーの動きを再開する
+				}
+			}, 1000); // 1秒ごとに実行
+		}
+	
 
+
+
+//ゲームオーバーになってページを遷移するための関数
 	function gameOver() {
 			flowFlag = 1;
 			setScore(1, score);
@@ -408,30 +465,25 @@ function DrawPlayer() {
     }
 
 
-	
+	//プレイヤーと敵が衝突していないか調べる
 	function CheckCollision() {
 
 		const playerRect = { x: player.dx, y: player.dy, width: player.dwidth, height: player.dheight };
-
-		// プレイヤーと敵1の衝突判定
 		const enemy1Rect = { x: enemy1.dx, y: enemy1.dy, width: enemy1.dwidth, height: enemy1.dheight };
+		const enemy2Rect = { x: enemy2.dx, y: enemy2.dy, width: enemy2.dwidth, height: enemy2.dheight };
+		const enemy3Rect = { x: enemy3.dx, y: enemy3.dy, width: enemy3.dwidth, height: enemy3.dheight };
 		if (isColliding(playerRect, enemy1Rect)) {
+			// プレイヤーと敵1の衝突判定
 			console.log("敵１と衝突");
 			CheckGameover();
 			return;
-		}
-	
-		// プレイヤーと敵2の衝突判定
-		const enemy2Rect = { x: enemy2.dx, y: enemy2.dy, width: enemy2.dwidth, height: enemy2.dheight };
-		if (isColliding(playerRect, enemy2Rect)) {
+		}else if (isColliding(playerRect, enemy2Rect)) {
+			// プレイヤーと敵2の衝突判定
 			console.log("敵２と衝突");
 			CheckGameover();
 			return;
-		}
-	
-		// プレイヤーと敵3の衝突判定
-		const enemy3Rect = { x: enemy3.dx, y: enemy3.dy, width: enemy3.dwidth, height: enemy3.dheight };
-		if (isColliding(playerRect, enemy3Rect)) {
+		}else if (isColliding(playerRect, enemy3Rect)) {
+			// プレイヤーと敵3の衝突判定
 			console.log("敵３と衝突");
 			CheckGameover();
 			return;
@@ -462,6 +514,7 @@ function DrawPlayer() {
 
 	//W,A,S,Dのキーが押された時に実行されるイベント
 	document.addEventListener('keydown', function (event) {
+		if (pausePlayer) return; // プレイヤーの動きが一時停止されている場合は何もしない
 		const key = (event.key.toUpperCase());
 		//toUpperCaseで大文字にしてから撮っている(小文字でも大文字でもプレイヤーを操作できるようにするため)
 		if (key === 'W') player.direction = 1;
@@ -470,19 +523,20 @@ function DrawPlayer() {
 		if (key === 'D') player.direction = 4;
 	});
 
-	const button = document.querySelector('#return');
 
+//戻るボタンを押した時の処理
+	const button = document.querySelector('#return');
 	button.addEventListener("click", (event) => {
 		console.log("ボタンをクリックしました");
 		location.href = '../html/gluttony_top.html';
 	});
 
-	const debugButton = document.querySelector('#debug');
+	// const debugButton = document.querySelector('#debug');
 
-	debugButton.addEventListener("click", (event) => {
-		console.log("ボタンをクリックしました");
-		DebugCheckClear();
-	});
+	// debugButton.addEventListener("click", (event) => {
+	// 	console.log("ボタンをクリックしました");
+	// 	DebugCheckClear();
+	// });
 
 	CountFood();
 	Main();
