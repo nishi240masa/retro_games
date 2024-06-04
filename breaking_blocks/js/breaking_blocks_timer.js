@@ -38,8 +38,8 @@ function movetimer(){
 }
 function drawtimer(){
     barBallsCtx.fillStyle='black'
-    barBallsCtx.font="40px serif";
-    barBallsCtx.fillText(Math.ceil(time),280,40);
+    barBallsCtx.font="40px dotFont";
+    barBallsCtx.fillText(Math.ceil(time),290,40);
 }
 function erasetimer(){
     messagescreenCtx.fillStyle='white'
@@ -49,7 +49,7 @@ function erasetimer(){
 }
 function drawscore(){
     barBallsCtx.fillStyle='black'
-    barBallsCtx.font="40px serif";
+    barBallsCtx.font="40px dotFont";
     barBallsCtx.fillText(Math.ceil(score_bb),0,40);
     if(stagenow.mode==-1){
         barBallsCtx.fillText("normal",150,40); 

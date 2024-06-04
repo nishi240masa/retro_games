@@ -142,7 +142,11 @@ const checkDropped = (ball, index) => {
         balls.splice(index, 1);
 
         if (balls.length === 0) {
+            if(screenState==='game'){
             changeGameState('waiting');
+            }else{
+                helpflag=0;
+            }
             if(stagenow.mode>=0){
                 if(time>10){
                     time-=10;
