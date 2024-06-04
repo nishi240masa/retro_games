@@ -1,3 +1,9 @@
+// lifeを減らす
+window.addEventListener("load", () => {
+  // ライフを減らす
+  removeLife();
+});
+
 // カウントダウンの初期設定
 let countdown = 5;
 let countdownInterval;
@@ -102,7 +108,9 @@ function gameClear() {
   // スコアをローカルストレージに保存
   setScore(3, current_score);
 
-  
+  // ライフの増加*2
+  addLife();
+  addLife();
 
   stopKeys();
 }

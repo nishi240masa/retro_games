@@ -12,6 +12,7 @@ document.getElementById("btn_easy").addEventListener("click", () => {
     `<script src="/fighting_game/js/characters.js?mode=${value}"></script>`
   );
 
+  // 画面遷移
   window.location.href = "../html/mode/fighting_easy.html";
 });
 // normal
@@ -24,6 +25,7 @@ document.getElementById("btn_normal").addEventListener("click", () => {
     `<script src="/fighting_game/js/characters.js?mode=${value}"></script>`
   );
 
+  // 画面遷移
   window.location.href = "../html/mode/fighting_normal.html";
 });
 // hard
@@ -35,5 +37,6 @@ document.getElementById("btn_hard").addEventListener("click", () => {
   document.write(
     `<script src="/fighting_game/js/characters.js?mode=${value}"></script>`
   );
+  // 画面遷移
   window.location.href = "../html/mode/fighting_hard.html";
 });
