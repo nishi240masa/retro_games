@@ -88,6 +88,7 @@ function gameOver() {
   ctx.fillStyle = "white";
   ctx.font = "30px dotFont";
   ctx.fillText("Game Over", canvas.width / 2 - 80, canvas.height / 2);
+  lifeZero(); // ライフが0になった時の処理
   stopKeys();
 }
 

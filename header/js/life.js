@@ -41,3 +41,13 @@ function removeLife() {
 
   drawLife();
 }
+
+// ライフが0になった時の処理
+function lifeZero() {
+  // ライフが0になった時の処理
+  if (getLife() == 0) {
+    console.log("lifeZero");
+
+    document.getElementById("game_over").style.display = "block";
+  }
+}

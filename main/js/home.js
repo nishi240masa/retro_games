@@ -80,6 +80,8 @@ btn_removeLife.addEventListener("click", function () {
 
   // 画面を更新する(loadを行わずに)
   drawLife();
+
+  lifeZero();
 });
 
 // ローカルストレージを消す
