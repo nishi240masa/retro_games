@@ -1,10 +1,16 @@
 body {
 	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+main {
+	height: 90%;
+	width: 100%;
 }
 
 #title {
 	background-color: grey;
-	height: 90vh;
+	/* height: 90vh; */
 }
 
 #gameScreen {
@@ -36,7 +42,7 @@ canvas {
 }
 
 p {
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .back {
@@ -50,3 +56,5 @@ p {
   color: black;
   font-size: 50px;
 }
+
+/* 変更前のCSS */

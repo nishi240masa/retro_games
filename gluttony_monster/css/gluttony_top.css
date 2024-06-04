@@ -1,11 +1,7 @@
-.jacquard-12-regular {
-	font-family: "Jacquard 12", system-ui;
-	font-weight: 400;
-	font-style: normal;
-}
 
 body {
 	background-color: #FFFFFF;
+	width: 100%;
 	height: 90vh;
 	overflow: hidden;
 }
@@ -17,12 +13,12 @@ body {
 	margin-top: 15%;
 	margin-bottom: 5%;
 	text-align: center;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 100px;
 }
 
 #gameInformation {
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	display: inline-block;
 	align-items: center;
 	justify-content: start;
@@ -32,7 +28,7 @@ body {
 }
 
 #highScore {
-	font-size: 30px;
+	margin-top: 15px;
 }
 
 #gameButton {
@@ -42,7 +38,7 @@ body {
 #continue {
 	background-color: #0000ff;
 	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 30px;
 	text-align: center;
 	width: 150px;
@@ -56,7 +52,7 @@ body {
 #goGame {
 	background-color: #0000ff;
 	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 30px;
 	text-align: center;
 	width: 150px;
@@ -69,7 +65,7 @@ body {
 #backToHome {
 	background-color: #0000ff;
 	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 30px;
 	text-align: center;
 	width: 150px;
@@ -78,15 +74,14 @@ body {
 }
 
 p {
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	float: left;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 25px;
 }
 
 #quit {
 	background-color: #0000ff;
 	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 30px;
 	text-align: center;
 	width: 150px;

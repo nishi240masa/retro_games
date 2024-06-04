@@ -1,22 +1,6 @@
-@font-face {
-	font-family: "retroFontText";
-	src: url("../css/Tra-Gothic.ttf") format("truetype");
-  }
-
-  @font-face {
-	font-family: "retroFontTitle";
-	src: url("../css/Bansyu-retoromin-R_ver.3.2.otf") format("opentype");
-  }
-
-  @font-face {
-	font-family: "dotFont";
-	src: url("../css/madoufmg.ttf") format("truetype");
-  }
-
-
 /* ボタンスタイル */
 .button {
-	background-color:gray; /* グリーン */
+	background-color:gray;
 	border: none;
 	color: white;
 	padding: 15px;
@@ -59,6 +43,7 @@
     border: 1px solid #888;
     width: 70%; 
 	height: 60%;
+
 }
 
 .close {
@@ -91,35 +76,56 @@
     background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
     color: transparent;
-    animation: rainbow 5s linear infinite;
-	font-size: 30px;
-	text-align: center;
-}
-
-@keyframes rainbow {
-    0% {background-position: 0% 50%}
-    50% {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
-}
-
-img {
-    width: 50px;
-    height: 50px;
-}
-
-#modalTextBox {
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    animation: rainbow 1.5s linear infinite;
+    font-size: 30px;
+    text-align: center;
     margin-top: 20px;
 }
 
-.player, .enemy {
-    text-align: center;
-    margin: 0 10px;
+@keyframes rainbow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
-.enemy img {
-    margin: 0 5px;
+
+.modal-contentBox {
+    padding: 20px;
+}
+
+.modalTextBox {
+    padding: 20px; 
+}
+
+.playerText {
+    width: 180px;
+    text-align: center;
+}
+
+.enemyText {
+    width: 180px;
+    text-align: center;
+}
+
+
+
+.playerImg {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.enemyImg {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.player {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.enemy {
+    display: flex;
 }
