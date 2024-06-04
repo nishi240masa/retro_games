@@ -15,7 +15,7 @@ btn_shooting.addEventListener("click", function () {
 
 btn_breaking = document.getElementById("btn_breaking");
 btn_breaking.addEventListener("click", function () {
-  window.location.href = "/breaking_blocks/html/breaking_blocks_index.html";
+  window.location.href = "/breaking_blocks/html/breaking_blocks_game.html";
 });
 
 // 最初に読み込んだ時にlocalsotrageの初期化を行う
@@ -65,7 +65,7 @@ checkBox.addEventListener("change", function () {
 });
 
 // デバック用
-// addLLife
+// addLLife;
 btn_addLife = document.getElementById("btn_addLife");
 btn_addLife.addEventListener("click", function () {
   plusLife();
