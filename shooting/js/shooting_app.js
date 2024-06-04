@@ -508,7 +508,7 @@ function DrawGameOver(){
         return;
     }
     ctx.fillStyle="#ff0000";
-    ctx.font="50px VT323";
+    ctx.font="50px ";
    
 
     if(playCount==0){ //初回プレイ時のみテキストをスタートにする
@@ -519,6 +519,7 @@ function DrawGameOver(){
         if(firstLoop==0){
             if(shooting_score>50){
                 addLife();
+                addLife();
             }
             setScore(2,shooting_score);
             game_score = getScore(2); //再度取得　これがないとlastもhighも更新されない
@@ -527,24 +528,27 @@ function DrawGameOver(){
         }
 
         //lastScore表示
-        let last_score = "score:  " + game_score.last_score;
+        ctx.font="45px dotFont";
+        ctx.fillStyle="#ff6347";
+        let last_score = "SCORE:  " + game_score.last_score;
         let x = (FIELD_WIDTH - ctx.measureText(last_score).width) / 2; // 中央に表示するためのx座標を取得する
-        ctx.fillText(last_score, x-40,200, 200); //：がGAME　と　OVER の間に来るよう調節
+        ctx.fillText(last_score, x-10,220, 250); //：がGAME　と　OVER の間に来るよう調節
 
-        if(shooting_score>=10){ //ボーナスライフ取得時の表示
+        if(shooting_score>=50){ //ボーナスライフ取得時の表示
+            ctx.font="45px dotFont";
             ctx.fillStyle="#ffa500";
-            let bonusLife = "bonus:   +1";
+            let bonusLife = "BONUS:   +1";
             let bonusHeart = "♡";
-            ctx.fillText(bonusLife, x-40,240, 250);
-            ctx.font="25px VT323";
-            ctx.fillText(bonusHeart, x+113,260, 250);
+            ctx.fillText(bonusLife, x-10,280, 250);
+            ctx.font="45px dotFont";
+            ctx.fillText(bonusHeart, x+143,280, 250);
 
             //gameover表示のためにサイズと色を戻す
-            ctx.fillStyle="#ff0000";
-            ctx.font="50px VT323";
+            ctx.font="50px dotFont";
         }
         
     }
+    ctx.fillStyle="#ff0000";
     let x = (FIELD_WIDTH - ctx.measureText(gameover).width) / 2; // 中央に表示するためのx座標を取得する
     ctx.fillText(gameover, x, 150);
 }
@@ -553,24 +557,24 @@ function DrawScore(){
     
     let text = shooting_score.toString().padStart( 5, '0'); // スコアが4桁以下のときは左0埋めして5桁にする
     ctx.fillStyle="#fff";
-    ctx.font="50px VT323";
+    ctx.font="50px dotFont";
     ctx.textBaseline="top";
     ctx.fillText(text, 20, 10);
     //ルール
-    ctx.font="30px VT323";
+    ctx.font="30px dotFont";
     ctx.fillStyle="#b0c4de";
     let playRule1 = 'space:';
     let playRule1_2 = '発射';
     let playRule2 = '十字キー:操作';
     let playRule3 = 'スコア50以上でライフ+1';
     ctx.fillText(playRule1, 20,60, 200);
-    ctx.font="24px VT323";
-    ctx.fillText(playRule1_2, 90,65, 200);
+    ctx.font="24px dotFont";
+    ctx.fillText(playRule1_2, 110,65, 200);
     ctx.fillText(playRule2, 20,95, 200);
     ctx.fillText(playRule3, 20,125, 200);
     //ハイスコア表示
     ctx.fillStyle="#ffd700";
-    ctx.font="50px VT323";
+    ctx.font="50px dotFont";
     let high_score = 'high score:'+game_score.high_score ;
     ctx.fillText(high_score, 20,250, 200);
 }
