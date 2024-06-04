@@ -8,13 +8,13 @@ const updateMessage = () => {
         messagescreenCtx.fillStyle='white'
         messagescreenCtx.fillRect(20, (canvasHeight/2)-30, canvasWidth-40, 60);
         messagescreenCtx.fillStyle='black'
-        messagescreenCtx.font="40px serif";
+        messagescreenCtx.font="40px dotFont";
         messagescreenCtx.fillText("CLICK TO START",30,canvasHeight/2+20);
         } else if (gameState === 'gameClear') {
         messagescreenCtx.fillStyle='white'
         messagescreenCtx.fillRect(20, (canvasHeight/2)-30, canvasWidth-40, 60);
         messagescreenCtx.fillStyle='black'
-        messagescreenCtx.font="40px serif";
+        messagescreenCtx.font="40px dotFont";
         if(time>0&&stagenow.mode>=0){
             messagescreenCtx.fillText("CLEAR",120,canvasHeight/2+20);
         }else{
@@ -29,6 +29,7 @@ const updateMessage = () => {
         }
     }else{
         homescreen();
+        console.log("go home");
     }
 };
 const changeGameState = (newGameState) => {
@@ -91,15 +92,19 @@ const clickhome=(event)=>{
         changescreenState("level");
     }else if(menu3.left<ex&&menu3.light>ex&&menu3.top<ey&&menu3.bottom>ey){
         changescreenState("help");
-    }      
+    }else if(menutop.left<ex&&menutop.light>ex&&menutop.top<ey&&menutop.bottom>ey){
+        window.location.href = "../../main/html/index.html";
+    }
 }
 const clicklevel=(event)=>{
     const ex = event.offsetX;
     const ey = event.offsetY;
     if(menu1.left<ex&&menu1.light>ex&&menu1.top<ey&&menu1.bottom>ey){
             console.log("selecteasy")
+            removeLife()
             levelstage('easy');
     }else if(menu2.left<ex&&menu2.light>ex&&menu2.top<ey&&menu2.bottom>ey){
+            removeLife()
             levelscreen('hard');
     }else if(ex>=365&&ex<=395&&ey>=10&&ey<=40){
         escapehome();
@@ -116,9 +121,33 @@ const clickstage=(event)=>{
             if(ex>50+j*100&&ex<80+50+j*100&&ey>200+i*150&&ey<80+200+i*150){
                 if(clearstage%checkval[i*3+j]==0){
                 selectstage(i*3+j);
+                removeLife();
                 }
             }
         }
+    }
+}
+const clickhelp=(event)=>{
+    const ex = event.offsetX;
+    const ey = event.offsetY;
+    if(help1.left<ex&&help1.light>ex&&help1.top<ey&&help1.bottom>ey){
+        changescreenState('home');
+    }else if(help2.left<ex&&help2.light>ex&&help2.top<ey&&help2.bottom>ey){
+        changescreenState('help2');
+    }else if( gameState === 'waiting'){
+        changeGameState('running');
+    }
+}
+const clickhelp2=(event)=>{
+    const ex = event.offsetX;
+    const ey = event.offsetY;
+    if(help1.left<ex&&help1.light>ex&&help1.top<ey&&help1.bottom>ey){
+        changescreenState('help');
+    }else if(help2.left<ex&&help2.light>ex&&help2.top<ey&&help2.bottom>ey){
+        changescreenState('home');
+    }else{
+        helpflag=1;
+        console.log(helpflag);
     }
 }
 const clickresult=(event)=>{
@@ -160,8 +189,13 @@ function loadStorage(){
 }
 //window.location.href = "../../breaking_blocks/html/breaking.html";
 function setStorage(){
+    for(let i=0;i<9;i++)
     setBleckBreakerScore(0,HIscorenormal)
     setBleckBreakerScore(1,HIscorehard)
+    setBleckBreakerScore(2,clearstage)
+    for(let i=3;i<9;i++){
+        setBleckBreakerScore(i,HIscorestage[i-3])
+    }
     //localStorage.setItem('clearstage',clearstage);
     //localStorage.setItem('normal',HIscorenormal);
     //localStorage.setItem('hard',HIscorehard);
@@ -175,9 +209,11 @@ function clearStorage_bb(){
     HIscorestage=[0,0,0,0,0,0];
     setStorage();
 }
+
+addLife();
+addLife();
 initBleckBreakerScore() 
 //localStorage.clear();
 //loadStorage();
-clearStorage_bb()
 updatescreen();
 

@@ -36,7 +36,28 @@ const blockDictionary = {
         effect () {
             time+=10;
         }
-    }
+    },
+    'boost':{
+        borderColor: 'gold',
+        fillColor: 'yellow',
+        hitPoints: 1,
+        score_bb:100,
+        effect () {
+            scorex+=1.0;
+            speed+=2.0;
+        }
+    },
+    'double': {
+        borderColor: 'chocolate',
+        fillColor: 'orange',
+        hitPoints: 1,
+        score_bb:100,
+        effect (ball) {
+            // 新しく生成するボールの進行角度
+            const degree=Math.random() * 100 + 220
+            createBall(ball.x, ball.y, degree);
+        },
+    },
 };
 
 
@@ -142,6 +163,10 @@ const initBlocks = () => {
                 createBlock('time', rowIndex, columnIndex);
             else if(stagenow[stagenum][rowIndex][columnIndex]==-1)
                 createBlock('wall', rowIndex, columnIndex);
+            else if(stagenow[stagenum][rowIndex][columnIndex]==4)
+                createBlock('double', rowIndex, columnIndex);
+            else if(stagenow[stagenum][rowIndex][columnIndex]==7)
+                createBlock('boost', rowIndex, columnIndex);
         }
     }
 
