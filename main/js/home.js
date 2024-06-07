@@ -81,6 +81,9 @@ btn_removeLife.addEventListener("click", function () {
   // 画面を更新する(loadを行わずに)
   drawLife();
 
+  // ライフが0になった時の処理
+  console.log("removeLifezeroカウント");
+
   lifeZero();
 });
 

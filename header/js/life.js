@@ -44,10 +44,14 @@ function removeLife() {
 
 // ライフが0になった時の処理
 function lifeZero() {
+  console.log("lifeZeroカウント");
   // ライフが0になった時の処理
   if (getLife() == 0) {
     console.log("lifeZero");
 
-    document.getElementById("game_over").style.display = "block";
+    // gameOverを表示する
+    // なぜか動かない
+    document.getElementById("game_over_pop").style.display = "block";
+    console.log("game_over");
   }
 }
