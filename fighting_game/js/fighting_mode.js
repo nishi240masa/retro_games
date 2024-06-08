@@ -1,6 +1,6 @@
 // retun
 document.getElementById("return").addEventListener("click", () => {
-  window.location.href = "../html/fighting_main.html";
+  window.location.href = "/fighting_game/html/fighting_top.html";
 });
 // easy
 document.getElementById("btn_easy").addEventListener("click", () => {
