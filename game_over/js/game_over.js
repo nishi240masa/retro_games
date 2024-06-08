@@ -12,6 +12,8 @@ fetch("/game_over/html/geme_over.html")
         .getElementById("btn_close_gameover")
         .addEventListener("click", () => {
           document.getElementById("game_over_pop").style.display = "none";
+
+        document.getElementById("game_over_popup").style.display = "block";
           //   ライフの初期化
           initLife();
           console.log("game_over");

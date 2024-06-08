@@ -64,6 +64,13 @@ checkBox.addEventListener("change", function () {
   console.log(check_popup);
 });
 
+// game_over_popupの非表示
+game_over_popup = document.getElementById("game_over_popup");
+btn_close_gameover_popup = document.getElementById("btn_close_gameover_popup");
+btn_close_gameover_popup.addEventListener("click", function () {
+  document.getElementById("game_over_popup").style.display = "none";
+});
+
 // デバック用
 // addLLife;
 btn_addLife = document.getElementById("btn_addLife");
