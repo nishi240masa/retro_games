@@ -386,6 +386,11 @@ function HitCheck(){
                 shooting_score += 10;
                 hit.currentTime = 0;
                 //hit.play();
+
+                //スコアが100を超えたらゲームを止める
+                if(shooting_score==100){
+                    isPlaying=0;
+                }
             }
         }
     }
@@ -527,6 +532,7 @@ function DrawGameOver(){
             firstLoop++;
         }
 
+
         //lastScore表示
         ctx.font="45px dotFont";
         ctx.fillStyle="#ff6347";
@@ -545,6 +551,10 @@ function DrawGameOver(){
 
             //gameover表示のためにサイズと色を戻す
             ctx.font="50px dotFont";
+
+            if(shooting_score>=100){
+                gameover='GAME CLEAR!'
+            }
         }
         
     }
@@ -567,11 +577,15 @@ function DrawScore(){
     let playRule1_2 = '発射';
     let playRule2 = '十字キー:操作';
     let playRule3 = 'スコア50以上でライフ+1';
+    let playRule4 = 'スコア100以上でクリア';
     ctx.fillText(playRule1, 20,60, 200);
     ctx.font="24px dotFont";
     ctx.fillText(playRule1_2, 110,65, 200);
     ctx.fillText(playRule2, 20,95, 200);
     ctx.fillText(playRule3, 20,125, 200);
+    ctx.fillStyle="#00ffff";
+    ctx.font="30px dotFont";
+    ctx.fillText(playRule4, 20,175, 350);
     //ハイスコア表示
     ctx.fillStyle="#ffd700";
     ctx.font="50px dotFont";
