@@ -1,3 +1,5 @@
+let setIntervalid
+let setIntervalid2
 let atime=0;
 const updateMessage = () => {
     if(screenState==='game'){
@@ -9,7 +11,7 @@ const updateMessage = () => {
         messagescreenCtx.fillRect(20, (canvasHeight/2)-30, canvasWidth-40, 60);
         messagescreenCtx.fillStyle='black'
         messagescreenCtx.font="40px dotFont";
-        messagescreenCtx.fillText("CLICK TO START",30,canvasHeight/2+20);
+        messagescreenCtx.fillText("CLICK TO START",60,canvasHeight/2+20);
         } else if (gameState === 'gameClear') {
         messagescreenCtx.fillStyle='white'
         messagescreenCtx.fillRect(20, (canvasHeight/2)-30, canvasWidth-40, 60);
@@ -20,6 +22,7 @@ const updateMessage = () => {
         }else{
             messagescreenCtx.fillText("TIME UP",100,canvasHeight/2+20);
         }
+        setIntervalid=setInterval(continueMessage,500);
         //messageLabel.style.display = 'block';
         //messageLabel.innerHTML = 'ゲームクリア！<br>クリックしてリセット';
         } else {
@@ -71,10 +74,13 @@ const click = (event) => {
     const ey = event.offsetY;
     if (gameState === 'initial') {
         changeGameState('waiting');
+        
     } else if( gameState === 'waiting'){
+        se3.play();
         changeGameState('running');
     }else if (gameState === 'gameClear') {
         changescreenState('result');
+        clearInterval(setIntervalid);
         // ゲームを初期状態にする
     };
     console.log(ex,ey);
@@ -105,7 +111,7 @@ const clicklevel=(event)=>{
             levelstage('easy');
     }else if(menu2.left<ex&&menu2.light>ex&&menu2.top<ey&&menu2.bottom>ey){
             removeLife()
-            levelscreen('hard');
+            levelstage('hard');
     }else if(ex>=365&&ex<=395&&ey>=10&&ey<=40){
         escapehome();
     }
@@ -154,7 +160,13 @@ const clickresult=(event)=>{
     changescreenState('home');
 }
 const clickstart=(event)=>{
+    const ex = event.offsetX;
+    const ey = event.offsetY;
+    if(menutop.left<ex&&menutop.light>ex&&menutop.top<ey&&menutop.bottom>ey){
+        window.location.href = "../../main/html/index.html";
+    }else{
     changescreenState('home');
+    }
 }
 const initGame = () => {
 
@@ -185,7 +197,9 @@ function loadStorage(){
     HIscorehard=getBleckBreakerScore(1).high_score;
     for(let i=0;i<6;i++){
         HIscorestage[i]=getBleckBreakerScore(i+3).high_score;
+        console.log(HIscorestage[i])
     }
+    console.log(clearstage)
 }
 //window.location.href = "../../breaking_blocks/html/breaking.html";
 function setStorage(){
@@ -195,7 +209,9 @@ function setStorage(){
     setBleckBreakerScore(2,clearstage)
     for(let i=3;i<9;i++){
         setBleckBreakerScore(i,HIscorestage[i-3])
+        
     }
+    
     //localStorage.setItem('clearstage',clearstage);
     //localStorage.setItem('normal',HIscorenormal);
     //localStorage.setItem('hard',HIscorehard);
@@ -210,10 +226,9 @@ function clearStorage_bb(){
     setStorage();
 }
 
-addLife();
-addLife();
-initBleckBreakerScore() 
+//addLife();
+//addLife();
+//initBleckBreakerScore() 
 //localStorage.clear();
-//loadStorage();
+loadStorage();
 updatescreen();
-

@@ -13,6 +13,7 @@ const blocksAreaWidth = canvasWidth;
 const extraAreaWItdh=canvasWidth;
 const extraAreaHeight=50;
 // ブロックエリアの縦幅
+let flaginterval=1;
 const blocksAreaHeight = 250;
 let stagenum=0;
 // 行の個数
@@ -27,7 +28,7 @@ let blockWidth = blocksAreaWidth / blocksColumnLength;
 // １つのブロックの縦幅
 let blockHeight = (blocksAreaHeight-50) / blocksRowLength;
 // 操作バーの横幅
-const barWidth = 75;
+const barWidth = 100;
 
 // 操作バーの横幅の半分の長さ
 const barHalfWidth = barWidth / 2;
@@ -45,9 +46,13 @@ const ballRadius = 6;
 
 // ボールの色
 const ballColor = 'orange';
+const se1=new Audio("../Audio/block_se1.m4a") 
+const se2=new Audio("../Audio/block_se2.m4a")
+const se3=new Audio("../Audio/block_se3.m4a")
 
 // ボールの移動スピード
-const cspeed=6
+const ccspeed=6
+let cspeed=ccspeed
 let speed = cspeed;
 let scorex=1.0;
 let dspeed =0.1;
@@ -58,7 +63,7 @@ let clearstage=1;
 let HIscorenormal=0;
 let HIscorehard=0;
 let HIscorestage=[0,0,0,0,0,0];
-const checkval=[1,2,3,5,7,11];
+const checkval=[1,2,3,5,7,11,13];
 const blocksCanvas = document.getElementById('blocks-canvas');
 
 // canvasのサイズを設定
