@@ -1,5 +1,6 @@
 /* ボタンスタイル */
 .button {
+    font-family: 'VT323';
 	background-color:gray;
 	border: none;
 	color: white;
