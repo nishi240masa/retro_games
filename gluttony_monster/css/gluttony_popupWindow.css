@@ -17,7 +17,7 @@
 	transform: translateY(-50%);
 	width: 50px; /* ボタンの幅 */
 	height: 50px; /* ボタンの高さ */
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'VT323';
 }
 
 .button:hover {
@@ -34,16 +34,17 @@
     height: 100%; 
     background-color: rgba(0,0,0,0.4); 
 	overflow: hidden;
+    color: #FFFFFF;
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #282828;
     margin: 10% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 70%; 
+    width: 60%; 
 	height: 60%;
-
+    overflow: hidden;
 }
 
 .close {
@@ -55,39 +56,32 @@
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #e0dcdc;
     text-decoration: none;
     cursor: pointer;
 }
 
 #modalTitle {
 	text-align: center;
-	font-size: 35px;
-	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 40px;
 	margin-bottom: 20px;
 }
 
 .modalText {
-	font-family: 'dotFont','retroFontText','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	margin-bottom: 5px;
+    font-size: 25px;
 }
 
 .rainbowText {
-    background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    background: linear-gradient(to bottom,rgb(255, 8, 0) ,rgb(255, 132, 0), rgb(82, 130, 0), rgb(130, 238, 207));
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     color: transparent;
-    animation: rainbow 1.5s linear infinite;
     font-size: 30px;
     text-align: center;
     margin-top: 20px;
 }
-
-@keyframes rainbow {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
 
 .modal-contentBox {
     padding: 20px;

@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	Main();
 
 	function Main() {
-
 		setInterval(GameStart, intervalTime);
 	}
 
@@ -19,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		ctx.font = "80px 'dotFont','VT323','Jaro','Danfo',serif";
 		ctx.fillStyle = "#FFFFFF";
-		ctx.fillText("Ready! ", canvas.width / 2 - 100, canvas.height / 2);
+		ctx.fillText("Ready! ", canvas.width / 2 - 110, canvas.height / 2);
 
 		if (appearCharMessage) {
 			ctx.font = "30px 'dotFont','VT323','Jaro','Danfo',serif";
 			ctx.fillStyle = "#FFFFFF";
-			ctx.fillText("Press space button", canvas.width / 2 - 120, canvas.height / 2 + 100);
+			ctx.fillText("Press space button", canvas.width / 2 - 130, canvas.height / 2 + 100);
 		}
 
 		appearCharMessage = !appearCharMessage;

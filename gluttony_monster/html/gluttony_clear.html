@@ -4,7 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../../font/font.css" />
-	<link rel="stylesheet" type="text/css" href="../css/gluttony_top.css" />
+	<link rel="stylesheet" type="text/css" href="../css/gluttony_clear.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -16,9 +16,7 @@
 <body>
 	<div id="header"></div>
 
-	<div id="gluttonyTitle">
-		<h2 id="titleCall">CONGRATSRATIONS!!</h2>
-	</div>
+	<h2 id="bigText">CONGRATSRATIONS!!</h2>
 	<div id="gameInformation">
 		<div class="scores">
 			<p id="yourScore"></p>
@@ -28,12 +26,14 @@
 		</div>
 	</div>
 	<div id="buttonSettings">
-		<div id="homeButton">
-			<button id="quit">quit</button>
-		</div>
 		<div id="gameButton">
-			<button id="continue">continue</button>
+			<button id="continue">CONTINUE</button>
 		</div>
+	</div>
+	<div class="back">
+		<span id="return" class="material-symbols-outlined">
+			keyboard_return
+		</span>
 	</div>
 	<script type="text/javascript" src="../../header/js/header.js"></script>
 	<script type="text/javascript" src="../../header/js/life.js"></script>
