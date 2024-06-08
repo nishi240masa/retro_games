@@ -25,8 +25,14 @@ const menutop={
 function startscreen(){
     screenState='start'
     screendefalut();
+    messagescreenCtx.font="40px dotFont";
     messagescreenCtx.fillText("breakingblocks",55,240);
     messagescreenCtx.fillText("click to start",70,340);
+    messagescreenCtx.fillStyle='gray'
+    messagescreenCtx.fillRect(2, 548, 102,50);
+    messagescreenCtx.fillStyle='black'
+    messagescreenCtx.font="40px dotFont";
+    messagescreenCtx.fillText("top",20,585);
 }
 function homescreen(){
     screenState='home'
@@ -53,7 +59,7 @@ function levelscreen(){
 }
 function selectstagescreen(){
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-    messagescreenCtx.fillStyle='#333333'
+    messagescreenCtx.fillStyle='black'
     messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight)
     messagescreenCtx.fillStyle='white'
     messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
@@ -65,7 +71,11 @@ function selectstagescreen(){
     for (let i=0;i<2;i++){
         for(let j=0;j<3;j++){
             if(clearstage%checkval[i*3+j]==0){
+                if(clearstage%checkval[i*3+j+1]==0){
+                messagescreenCtx.fillStyle='yellow';
+                }else{
                 messagescreenCtx.fillStyle='white';
+                }
             }else{
                 messagescreenCtx.fillStyle='gray';
             }
@@ -77,6 +87,7 @@ function selectstagescreen(){
     }
 }
 function resultscreen(){
+    let lifeplus=0;
     barBallsCtx.clearRect(0, 0, canvasWidth, canvasHeight);
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
     messagescreenCtx.fillStyle='#333333';
@@ -102,21 +113,29 @@ function resultscreen(){
         if(stagenow.mode==-1){
             if(score_bb>HIscorenormal){
                 HIscorenormal=score_bb;
-                //setBleckBreakerScore(0,HIscorenormal);
+                setBleckBreakerScore(0,HIscorenormal);
                 //localStorage.setItem('normal',HIscorenormal);
                 addLife();
                 addLife();
-                messagescreenCtx.fillText("new recode!",150,390);
+                lifeplus+=2
+                messagescreenCtx.fillText("new record!",150,390);
+            }else if(score_bb>HIscorenormal*0.6){
+                addLife();
+                lifeplus+=1
             }
             messagescreenCtx.fillText(HIscorenormal,150,340); 
         }else if(stagenum.mode==-2){
             if(score_bb>HIscorehard){
                 HIscorehard=score_bb;
-                //setBleckBreakerScore(1,HIscorehard);
+                setBleckBreakerScore(1,HIscorehard);
                 //localStorage.setItem('hard',HIscorehard);
-                messagescreenCtx.fillText("new recode!",150,390);
+                messagescreenCtx.fillText("new record!",150,390);
                 addLife();
                 addLife();
+                lifeplus+=2
+            }else if(score_bb>HIscorehard*0.6){
+                addLife();
+                lifeplus+=1
             }
             messagescreenCtx.fillText(HIscorehard,150,340); 
         }
@@ -134,21 +153,31 @@ function resultscreen(){
         if(scoretime>HIscorestage[stagenow.mode]){
             HIscorestage[stagenow.mode]=scoretime;
             setBleckBreakerScore(stagenow.mode+3,HIscorestage[stagenow.mode]);
-            messagescreenCtx.fillText("new recode!",120,390);
+            messagescreenCtx.fillText("new record!",120,390);
             addLife();
-            addLife();
+            lifeplus+=1
         }
         messagescreenCtx.fillText(HIscorestage[stagenow.mode],200,340);
-        if(clearstage%(checkval[stagenow.mode+1])!=0&&stagenow.mode!=5&&time<=0){
+        if(clearstage%(checkval[stagenow.mode+1])!=0&&time>0){
             clearstage*=checkval[stagenow.mode+1]
             setBleckBreakerScore(2,clearstage);  
+            console.log("new");
         }
+        if(time>0){
+        addLife();
+        lifeplus+=1
+        }
+    }
+    if(lifeplus>0){
+        messagescreenCtx.font="50px dotFont";
+        messagescreenCtx.fillText("LIFE+",120,490);
+        messagescreenCtx.fillText(lifeplus,245,490);
     }
 }
 function screendefalut(){
     barBallsCtx.clearRect(0,0,canvasWidth,canvasHeight);
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-    messagescreenCtx.fillStyle='#333333'
+    messagescreenCtx.fillStyle='black'
     messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight)
     messagescreenCtx.fillStyle='white'
     messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
@@ -218,7 +247,7 @@ function drawhomebutton(){
     barBallsCtx.fillStyle='red';
     barBallsCtx.fillRect(365, 10, 30, 30);
     barBallsCtx.fillStyle='black';
-    barBallsCtx.font="40px dotFont";
+    barBallsCtx.font="30px dotFont";
     barBallsCtx.fillText("×",367,38); 
 }
 function escapehome(){

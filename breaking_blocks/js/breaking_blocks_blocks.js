@@ -45,6 +45,9 @@ const blockDictionary = {
         effect () {
             scorex+=1.0;
             speed+=2.0;
+            if(speed>12){
+                speed=12;
+            }
         }
     },
     'double': {
@@ -109,7 +112,9 @@ const removeBlock = (block) => {
     eraseBlock(block);
     score_bb+=block.score_bb*scorex;
     blocksCount--;
+    if(speed<12){
     speed+=dspeed;
+    }
     scorex+=dscorex;
     //updateBlocksCountLabel();
 
@@ -131,7 +136,6 @@ const clideBlock = (ball, block) => {
     }
 
     block.hitPoints--;
-
     if (block.effect) {
         block.effect(ball);
     }
@@ -139,6 +143,8 @@ const clideBlock = (ball, block) => {
     if (block.hitPoints === 0) {
         removeBlock(block);
     }
+ 
+    
 };
 
 

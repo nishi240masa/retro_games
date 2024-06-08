@@ -50,6 +50,7 @@ function helpscreen(){
     messagescreenCtx.fillText("->",340,588,);
 }
 function help2screen(){
+    blocks = [];
     let tustate='wait'
     messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
     messagescreenCtx.fillStyle='#333333'
