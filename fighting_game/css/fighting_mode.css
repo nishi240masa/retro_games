@@ -45,8 +45,7 @@ body {
 .mode_btn {
   background-color: transparent;
   border: solid 2px white;
-  color: black;
-  border: none;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
   padding: 30px 50px;
