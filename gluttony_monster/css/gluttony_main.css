@@ -1,10 +1,8 @@
 body {
-	background-color: #FFFFFF;
+	background-color: black;
+	width: 100%;
+	height: 100vh;
 	overflow: hidden;
-}
-
-#title {
-	background-color: grey;
 }
 
 #gameScreen {
@@ -15,7 +13,7 @@ body {
 
 #allContents {
 	padding-left: 2%;
-	padding-top: 2%;
+	padding-top: 5%;
 	margin: auto;
 	align-content: center;
 	justify-content: center;
@@ -23,9 +21,8 @@ body {
 }
 
 canvas {
-	border: 5px solid black;
-	border: none;
-	background-color: #252121;
+	border: 2px solid white;
+	background-color: #282828;
 }
 
 #gameInfo {
@@ -34,9 +31,11 @@ canvas {
 	align-content: center;
 	font-size: 40px;
 	margin-left: 5%;
+	width: 150px;
 }
 
 #scoreAndLife {
+	color: white;
 	margin-top: 200px;
 }
 #keyExplanation {
@@ -60,20 +59,24 @@ canvas {
 #W {
     grid-column: 2; 
     grid-row: 1; 
+	    background-color: rgb(219, 219, 219);
 }
 #A {
     grid-column: 1; 
     grid-row: 2; 
+	background-color: rgb(219, 219, 219);
 }
 
 #S {
     grid-column: 2; 
     grid-row: 2; 
+	background-color: rgb(219, 219, 219);
 }
 
 #D {
     grid-column: 3; 
     grid-row: 2; 
+    background-color: rgb(219, 219, 219);
 }
 
 /* キースタイル */
@@ -83,33 +86,30 @@ canvas {
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: rgb(219, 219, 219);
-    border: 1px solid black;
+    border: 1px solid white;
     font-size: 20px;
 }
 
 .move {
+	color: white;
 	margin-top: 10px;
 	text-align: center;
-	margin: auto;
-	margin-top: 10px;
-}
-
-p {
-	font-family: 'dotFont','VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
+	margin-left: 20px;
+	margin-right: 10px;
 }
 
 .back {
-  
+	margin: 20px;
 	cursor: pointer;
-	margin-left: 5%;
   }
 
 .back > span {
-	margin-top:5px;
-  color: black;
-  font-size: 50px;
-}
+	position: fixed;
+	bottom: 5%;
+	left: 3%;
+	color: white;
+	font-size: 50px;
+  }
 
 #debug { 
 	position: absolute;

@@ -31,38 +31,19 @@ const highScore = document.querySelector('#highScore');
 // localStorageからハイスコアを取得、なければ0に初期化
 highScore.textContent = "High Score:" + cat.high_score;
 
+const startBtn = document.querySelector('#continue');
 
-// const startBtn = document.querySelector('#continue');
+blinkFlag = 0;
+function blinking (){
+	if (blinkFlag == 0){
+		startBtn.style.opacity = 0.1;
+		blinkFlag = 1;
+	} else {
+		startBtn.style.opacity = 1;
+		blinkFlag = 0;
+	}
+}
 
-// let blinkFlag = 0;
-// function blinking (){
-// 	if (blinkFlag == 0){
-// 		startBtn.style.opacity = 0.1;
-// 		blinkFlag = 1;
-// 	} else {
-// 		startBtn.style.opacity = 1;
-// 		blinkFlag = 0;
-// 	}
-// }
-
-// const bigText = document.querySelector('#bigText');
-
-// let fontsize = 20;
-
-// function gradation() {
-// 	if(fontsize <= 100){
-// 		bigText.style.fontSize = `${fontsize}px`
-// 		fontsize++;
-// 		console.log(`${fontsize}pxに設定`);
-// 	}else {
-// 		clearInterval(gradInter);
-// 	}
-// }
-
-
-
-// setInterval(blinking,415);
-// let gradInter = setInterval(gradation,10);
-
+setInterval(blinking,415);
 
 });

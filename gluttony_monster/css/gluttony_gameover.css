@@ -1,92 +1,100 @@
-.jacquard-12-regular {
-	font-family: "Jacquard 12", system-ui;
-	font-weight: 400;
-	font-style: normal;
-}
-
 body {
-	background-color: #FFFFFF;
-	height: 90vh;
+	background-color: black;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
 }
 
-#title {
-	background-color: grey;
-}
-
-
-
-
-#titleCall {
-	margin-top: 250px;
+#bigText {
+	position: sticky;
+	margin-top: 18%;
+	margin-bottom: 5%;
 	text-align: center;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 80px;
+	font-size: 100px;
+	width: 100%;
+	height: 100px; 
+
+	background: linear-gradient(to bottom,rgb(0, 110, 255) ,blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+	animation: slide-up 1500ms forwards;
+
 }
+
+@keyframes slide-up {
+	0% {
+	  clip-path: inset(100% 0 0 0);
+	}
+	100% {
+	  clip-path: inset(0 0 0 0);
+	}
+  }
 
 #gameInformation {
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
 	display: inline-block;
 	align-items: center;
 	justify-content: start;
 	margin-left: 5%;
+	margin-bottom: 90px;
 }
 
 #highScore {
 	font-size: 25px;
+	color: white;
 }
 
 #yourScore {
 	font-size: 25px;
+	color: white;
 }
+
 
 #gameButton {
 	text-align: center;
 }
 
 #continue {
-	background-color: #0000ff;
-	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 30px;
-	text-align: center;
-	width: 150px;
-
-	border: none;
-	/* outline: none; */
-	margin: 0px 0px 0px 20%;
-}
-
-
-#goGame {
-	background-color: #0000ff;
-	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 30px;
-	text-align: center;
-	width: 150px;
-
-	border: none;
-}
-
-p {
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	float: left;
-	font-size: 25px;
-}
-
-#quit {
-	background-color: #0000ff;
-	color: #FFFFFF;
-	font-family: 'VT323', 'Danfo', Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 30px;
+	background-color: black;
+	color: white;
+	font-size: 35px;
 	text-align: center;
 	width: 150px;
 	border: none;
-	margin: 0px 20% 0px 0px;
+	margin: auto;
+	cursor: pointer;
+
+	animation: blink 900ms infinite;
 }
+#continue:hover {
+	color: rgb(174, 169, 169);
+}
+
+@keyframes blink {
+	0%, 49.9% {
+	  opacity: 1;
+	}
+	50%, 100% {
+	  opacity: 0.1;
+	}
+  }
 
 #buttonSettings {
 	justify-content: center;
 	display: flex;
 	margin: auto;
 }
+.back {
+	margin: 20px;
+	cursor: pointer;
+  }
+
+.back > span {
+	position: fixed;
+	bottom: 5%;
+	left: 3%;
+	color: white;
+	font-size: 50px;
+  }

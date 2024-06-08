@@ -145,8 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	function Main() {
-		canvas.style.border = "1px solid #111";
-
 		mainInterval = setInterval(Draw, intervalTime);//"intervalTime"ms後にDrawを再実行}
 	}
 
@@ -332,7 +330,7 @@ function DrawPlayer() {
 			mazeflag[i][j] = 1;
 			score += 10;
 			getFood++;
-			document.getElementById('gameScore').textContent = `score:${score}`;
+			document.getElementById('gameScore').textContent = `SCORE:${score}`;
 		}
 	}
 
@@ -392,14 +390,12 @@ function DrawPlayer() {
 	function CheckGameover() {
 
 		if (player.life >= 1) {//lifeが0になったらゲームオーバーにする
-
 			//残機あり
 			player.life = player.life - 1;
 			console.log("ライフが1減りました");
-			document.getElementById('playerLife').textContent = `life stock:${player.life}`;
+			document.getElementById('playerLife').textContent = `LIFE :${player.life}`;
 			resetPlayer();
 		} else {
-
 			//残機なし
 			gameOver();
 
@@ -511,16 +507,45 @@ function DrawPlayer() {
 
 	}
 		
+	const Wkey = document.querySelector('#W');
+	const Akey = document.querySelector('#A');
+	const Skey = document.querySelector('#S');
+	const Dkey = document.querySelector('#D');
 
 	//W,A,S,Dのキーが押された時に実行されるイベント
 	document.addEventListener('keydown', function (event) {
 		if (pausePlayer) return; // プレイヤーの動きが一時停止されている場合は何もしない
 		const key = (event.key.toUpperCase());
 		//toUpperCaseで大文字にしてから撮っている(小文字でも大文字でもプレイヤーを操作できるようにするため)
-		if (key === 'W') player.direction = 1;
-		if (key === 'A') player.direction = 2;
-		if (key === 'S') player.direction = 3;
-		if (key === 'D') player.direction = 4;
+		if (key === 'W'){
+			player.direction = 1;
+			Wkey.style.backgroundColor = 'rgb(130, 128, 128)';
+			Akey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Skey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Dkey.style.backgroundColor = 'rgb(219, 219, 219)';
+
+		}
+		if (key === 'A'){
+			player.direction = 2;
+			Wkey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Akey.style.backgroundColor = 'rgb(130, 128, 128)';
+			Skey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Dkey.style.backgroundColor = 'rgb(219, 219, 219)';
+		}
+		if (key === 'S'){
+			player.direction = 3;
+			Wkey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Akey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Skey.style.backgroundColor = 'rgb(130, 128, 128)';
+			Dkey.style.backgroundColor = 'rgb(219, 219, 219)';
+		}
+		if (key === 'D'){
+			player.direction = 4;
+			Wkey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Akey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Skey.style.backgroundColor = 'rgb(219, 219, 219)';
+			Dkey.style.backgroundColor = 'rgb(130, 128, 128)';
+		}
 	});
 
 
@@ -531,12 +556,14 @@ function DrawPlayer() {
 		location.href = '../html/gluttony_top.html';
 	});
 
-	// const debugButton = document.querySelector('#debug');
+	 const debugButton = document.querySelector('#debug');
 
-	// debugButton.addEventListener("click", (event) => {
-	// 	console.log("ボタンをクリックしました");
-	// 	DebugCheckClear();
-	// });
+	 debugButton.addEventListener("click", (event) => {
+	 	console.log("ボタンをクリックしました");
+	 	DebugCheckClear();
+	 });
+
+
 
 	CountFood();
 	Main();

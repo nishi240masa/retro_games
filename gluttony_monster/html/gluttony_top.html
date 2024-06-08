@@ -11,7 +11,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Danfo&family=Jacquard+12&family=Jaro:opsz@6..72&family=Montserrat:wght@800&family=VT323&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
     <title>GluttonyMonster</title>
 </head>
 
@@ -27,9 +26,9 @@
             <div class="modal-contentBox">
                 <span class="close" id="closeModal">&times;</span>
                 <h2 id="modalTitle">遊び方</h2>
-                <p class="modalText">このゲームでは、キーボードのW、A、S、Dキーを使って猫を操作します。</p>
+                <p class="modalText">キーボードのW、A、S、Dキーを使い猫を操作します。</p>
                 <p class="modalText">マップを徘徊する敵に気をつけながら、マップ上に落ちているエサを集めましょう。</p>
-                <p class="modalText">エサを全て集めると、次のレベルに進むことができます。</p>
+                <p class="modalText">エサを全て集めると、クリアになります。</p>
                 <p class="modalText">敵に3回ぶつかるとゲームオーバーになってしまいますので、注意してください。</p>
                 <p class="modalText rainbowText">Good Luck!</p>
             </div>
@@ -48,19 +47,21 @@
         </div>
     </div>
 
-    <div id="gluttonyTitle">
-        <h2 id="titleCall">GLUTTONY MONSTER</h2>
-    </div>
+    <h2 id="gameTitle">GLUTTONY MONSTER</h2>
     <div id="gameInformation">
-        <p id="highScore"></p>
+        <div id="infoCover">
+            <p id="highScore"></p>
+        </div>
     </div>
     <div id="buttonSettings">
-        <div id="homeButton">
-            <button id="backToHome">back</button>
-        </div>
         <div id="gameButton">
-            <button id="goGame">start</button>
+            <button id="goGame">START</button>
         </div>
+    </div>
+    <div class="back">
+        <span id="return" class="material-symbols-outlined">
+            keyboard_return
+        </span>
     </div>
     <script type="text/javascript" src="../../header/js/header.js"></script>
     <script type="text/javascript" src="../../header/js/life.js"></script>
