@@ -81,6 +81,8 @@ const life = 5;
 
 const check = "false";
 
+const game_over = "false";
+
 // 最初に実行（使うな）
 function initlocal() {
   // localStorageに接続できるか確認
@@ -276,6 +278,23 @@ function getCheck() {
   console.log("getCheck");
   console.log(localStorage.getItem("check"));
   return localStorage.getItem("check");
+}
+
+// game_overのセット
+function setGameOver(game_over) {
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("game_over") == null) {
+    localStorage.setItem("game_over", game_over);
+  }
+  localStorage.setItem("game_over", game_over);
+}
+// game_overの取得
+function getGameOver() {
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("game_over") == null) {
+    localStorage.setItem("game_over", game_over);
+  }
+  return localStorage.getItem("game_over");
 }
 
 // ブロック崩しのスコアを取得
