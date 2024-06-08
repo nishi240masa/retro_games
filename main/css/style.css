@@ -72,3 +72,40 @@ body {
   margin: 10px;
   font-size: 20px;
 }
+
+.game_over_popup {
+  display: block; /* デフォルトは非表示 */
+  position: fixed; /* 固定位置 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: black;
+  border-radius: 5px;
+  border: 3px solid white;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* 他の要素の上に表示 */
+
+  h2 {
+    color: white;
+    margin-top: 0;
+  }
+  p {
+    color: white;
+    line-height: 1.6;
+    margin: 10px 0;
+  }
+}
+
+.btn_close_gameover_popup {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 20px;
+}
