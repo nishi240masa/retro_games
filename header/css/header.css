@@ -8,8 +8,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: gray;
-  color: #fff;
+  background-color: black;
+  border-bottom: 1px solid #fff;
+
+  height: 50%;
 }
 .list {
   display: flex;
@@ -48,13 +50,17 @@
 }
 
 .titele_box {
-  color: #333;
+  color: white;
   position: absolute;
   top: 0;
   right: 50%;
   margin-top: 15px;
   transform: translateX(50%);
-  background-color: gray;
+  background-color: transparent;
+}
+
+.titele_name {
+  margin: 0 auto;
 }
 
 .life_count_box {
