@@ -39,21 +39,21 @@ fetch("/header/html/header.html")
     function fightingGameTitle() {
       const title = document.getElementById("title_name");
       console.log(title);
-      if (title) title.innerText = "Fighting Game";
+      if (title) title.innerText = "Pixel Figher";
     }
 
     // グラモンの時のタイトルを表示する
     function gramonTitle() {
       const title = document.getElementById("title_name");
       console.log(title);
-      if (title) title.innerText = "Gramon";
+      if (title) title.innerText = "Gluttony Monster";
     }
 
     // シューティングの時のタイトルを表示する
     function shootingGameTitle() {
       const title = document.getElementById("title_name");
       console.log(title);
-      if (title) title.innerText = "Shooting Game";
+      if (title) title.innerText = "Bird Shooting";
     }
 
     // ブロック崩しの時のタイトルを表示する
