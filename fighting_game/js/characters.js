@@ -3,8 +3,7 @@ let player1;
 let enemy;
 
 // modeの取得
-const urlParams = new URLSearchParams(window.location.search);
-const difficulty = urlParams.get("mode");
+// const difficulty;
 
 // キャラクターの初期設定
 function initializeCharacters() {
