@@ -46,9 +46,9 @@ const ballRadius = 6;
 
 // ボールの色
 const ballColor = 'orange';
-const se1=new Audio("../Audio/block_se1.m4a") 
-const se2=new Audio("../Audio/block_se2.m4a")
-const se3=new Audio("../Audio/block_se3.m4a")
+//const se1=new Audio("../Audio/block_se1.m4a") 
+//const se2=new Audio("../Audio/block_se2.m4a")
+//const se3=new Audio("../Audio/block_se3.m4a")
 
 // ボールの移動スピード
 const ccspeed=6
@@ -58,7 +58,7 @@ let scorex=1.0;
 let dspeed =0.1;
 let dscorex=0.05;
 let gameState = 'initial';
-let screenState='start';
+let screenState='home';
 let clearstage=1;
 let HIscorenormal=0;
 let HIscorehard=0;

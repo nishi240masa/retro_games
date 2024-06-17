@@ -100,6 +100,8 @@ const clickhome=(event)=>{
         changescreenState("help");
     }else if(menutop.left<ex&&menutop.light>ex&&menutop.top<ey&&menutop.bottom>ey){
         window.location.href = "../../main/html/index.html";
+    }else if(menu0.left<ex&&menu0.light>ex&&menu0.top<ey&&menu0.bottom>ey){
+        changescreenState("high");
     }
 }
 const clicklevel=(event)=>{
@@ -158,6 +160,13 @@ const clickhelp2=(event)=>{
 }
 const clickresult=(event)=>{
     changescreenState('home');
+}
+const clickhigh=(event)=>{
+    const ex = event.offsetX;
+    const ey = event.offsetY;
+    if(help1.left<ex&&help1.light>ex&&help1.top<ey&&help1.bottom>ey){
+        changescreenState('home');
+    }
 }
 const clickstart=(event)=>{
     const ex = event.offsetX;

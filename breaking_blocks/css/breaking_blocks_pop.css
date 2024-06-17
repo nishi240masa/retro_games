@@ -1,0 +1,124 @@
+.button {
+	background-color:gray;
+	border: none;
+	color: white;
+	padding: 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 2px 2px;
+	cursor: pointer;
+	border-radius: 50%; /* ボタンを正円にする */
+	position: fixed;
+	top: 120px;
+	right: 20px; /* 右端に配置 */
+	transform: translateY(-50%);
+	width: 50px; /* ボタンの幅 */
+	height: 50px; /* ボタンの高さ */
+	font-family: 'VT323';
+}
+
+.button:hover {
+    background-color: rgb(80, 79, 79);
+}
+/* モーダルスタイル */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+	overflow: hidden;
+    color: #FFFFFF;
+}
+
+.modal-content {
+    background-color: #282828;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; 
+	height: 60%;
+    overflow: hidden;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #e0dcdc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalTitle {
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+
+.modalText {
+	margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.rainbowText {
+    background: linear-gradient(to bottom,rgb(255, 8, 0) ,rgb(255, 132, 0), rgb(82, 130, 0), rgb(130, 238, 207));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-contentBox {
+    padding: 20px;
+}
+
+.modalTextBox {
+    padding: 20px; 
+}
+
+.playerText {
+    width: 180px;
+    text-align: center;
+}
+
+.enemyText {
+    width: 180px;
+    text-align: center;
+}
+
+
+
+.playerImg {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.enemyImg {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.player {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.enemy {
+    display: flex;
+}

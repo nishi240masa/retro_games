@@ -1,3 +1,9 @@
+const menu0={
+    top:100,
+    bottom:150,
+    left:50,
+    light:canvasWidth-50,
+}
 const menu1={
     top:200,
     bottom:250,
@@ -39,11 +45,13 @@ function homescreen(){
     screendefalut();
     messagescreenCtx.fillStyle='gray'
     messagescreenCtx.fillRect(50, 400, canvasWidth-100, 50);
+    messagescreenCtx.fillRect(50, 100, canvasWidth-100, 50);
     messagescreenCtx.fillRect(2, 548, 102,50);
     messagescreenCtx.fillStyle='black'
     messagescreenCtx.font="40px dotFont";
     messagescreenCtx.fillText("top",20,585);
     messagescreenCtx.fillText("help",150,440);
+    messagescreenCtx.fillText("high score",95,140);
     messagescreenCtx.fillText("block",150,40);
     messagescreenCtx.fillText("mode 1",130,240);
     messagescreenCtx.fillText("mode 2",130,340);
@@ -65,7 +73,6 @@ function selectstagescreen(){
     messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
     drawhomebutton();
     messagescreenCtx.fillStyle='black'
-    
     messagescreenCtx.font="40px dotFont";
     messagescreenCtx.fillText("stage",150,40);
     for (let i=0;i<2;i++){
@@ -172,7 +179,34 @@ function resultscreen(){
         messagescreenCtx.font="50px dotFont";
         messagescreenCtx.fillText("LIFE+",120,490);
         messagescreenCtx.fillText(lifeplus,245,490);
+    }else{
+        lifeZero();
     }
+}
+function highscorescreen(){
+    barBallsCtx.clearRect(0,0,canvasWidth,canvasHeight);
+    messagescreenCtx.clearRect(0, 0, canvasWidth, canvasHeight);
+    messagescreenCtx.fillStyle='black'
+    messagescreenCtx.fillRect(0, 0, canvasWidth, canvasHeight)
+    messagescreenCtx.fillStyle='white'
+    messagescreenCtx.fillRect(0, 0, canvasWidth, 50)
+    messagescreenCtx.font="40px dotFont"
+    messagescreenCtx.fillText("normal",10,140); 
+    messagescreenCtx.fillText(HIscorenormal,200,140); 
+    messagescreenCtx.fillText("hard",20,190); 
+    messagescreenCtx.fillText(HIscorehard,200,190);
+    messagescreenCtx.font="30px dotFont" 
+    for(let i=0;i<6;i++){
+        messagescreenCtx.fillText("stage",10,240+i*50);
+        messagescreenCtx.fillText(i+1,90,240+i*50);
+        messagescreenCtx.fillText(HIscorestage[i],200,240+i*50);
+    }
+    messagescreenCtx.fillStyle='gray';
+    messagescreenCtx.fillRect(2, 548, 100, 50);
+    messagescreenCtx.fillStyle = 'black';
+    messagescreenCtx.font="40px dotFont";
+    messagescreenCtx.fillText("back",12,588);
+    messagescreenCtx.fillText("high score",95,40);
 }
 function screendefalut(){
     barBallsCtx.clearRect(0,0,canvasWidth,canvasHeight);
@@ -208,6 +242,8 @@ function removeevent(){
             barBallsCanvas.removeEventListener("mousemove", setBarX);
             barBallsCanvas.removeEventListener("touchmove", setBarX, { passive: true });
             barBallsCanvas.removeEventListener("click",clickhelp2);
+        }else if(screenState==='high'){
+            barBallsCanvas.removeEventListener("click",clickhigh);
         }
 }
 function updatescreen(){
@@ -239,6 +275,9 @@ function updatescreen(){
             barBallsCanvas.addEventListener("touchmove", setBarX, { passive: true });
             barBallsCanvas.addEventListener("click",clickhelp2);
             help2screen();
+        }else if(screenState==='high'){
+            barBallsCanvas.addEventListener("click",clickhigh);
+            highscorescreen();
         }
 }
 function drawhomebutton(){
@@ -248,9 +287,10 @@ function drawhomebutton(){
     barBallsCtx.fillRect(365, 10, 30, 30);
     barBallsCtx.fillStyle='black';
     barBallsCtx.font="30px dotFont";
-    barBallsCtx.fillText("×",367,38); 
+    barBallsCtx.fillText("×",366,36); 
 }
 function escapehome(){
     barBallsCtx.clearRect(0,0,canvasWidth,canvasHeight);
     changescreenState('home'); 
+    lifeZero();
 }
