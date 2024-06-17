@@ -70,8 +70,11 @@ function lifeZero() {
     console.log("lifeZero");
 
     // gameOverを表示する
-    // なぜか動かない
     document.getElementById("game_over_pop").style.display = "block";
     console.log("game_over");
+
+    // localStorageにスコアを消す
+    initScore();
+    initBleckBreakerScore();
   }
 }
