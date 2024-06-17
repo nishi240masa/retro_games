@@ -5,7 +5,7 @@ btn_gluttony.addEventListener("click", function () {
 
 btn_fight = document.getElementById("btn_fight");
 btn_fight.addEventListener("click", function () {
-  window.location.href = "../../fighting_game/html/fighting_main.html";
+  window.location.href = "/fighting_game/html/fighting_top.html";
 });
 
 btn_shooting = document.getElementById("btn_shooting");
