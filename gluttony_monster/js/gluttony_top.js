@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const button = document.querySelector('#goGame');
 
-	button.addEventListener("click", (event) => {
-		console.log("ボタンをクリックしました");
+	button.addEventListener("click", () => {
+		console.log("CONTINUEボタンを押しました。レディ画面に飛びます。");
 		location.href = '../html/gluttony_ready.html';
 	});
 
 	const backButton = document.querySelector('.back');
 
-	backButton.addEventListener("click", (event) => {
-		console.log("ボタンをクリックしました");
+	backButton.addEventListener("click", () => {
+		console.log("戻るボタンを押しました。メインページに飛びます。");
 		 location.href = '../../main/html/index.html';
 	});
 
@@ -31,19 +31,5 @@ const highScore = document.querySelector('#highScore');
 highScore.textContent = "High Score:" + cat.high_score;
 
 
-// const startBtn = document.querySelector('#goGame');
-
-// let blinkFlag = 0;
-// function blinking (){
-// 	if (blinkFlag == 0){
-// 		startBtn.style.opacity = 0.1;
-// 		blinkFlag = 1;
-// 	} else {
-// 		startBtn.style.opacity = 1;
-// 		blinkFlag = 0;
-// 	}
-// }
-
-// setInterval(blinking,415);
 
 });
