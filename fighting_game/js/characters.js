@@ -3,7 +3,7 @@ let player1;
 let enemy;
 
 // modeの取得
-// const difficulty;
+const difficulty = getFightingMode();
 
 // キャラクターの初期設定
 function initializeCharacters() {
