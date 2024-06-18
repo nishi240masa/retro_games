@@ -1,13 +1,6 @@
 // ヘッダーを読み込む
 fetch("/header/html/header.html")
-  .then((response) => 
-
-    response.text();
-  )
-
-  // .then((error) => {
-  //   console.error("通信に失敗しました", error);
-  // })
+  .then((response) => response.text())
   .then((data) => {
     document.querySelector("#header").innerHTML = data;
 
