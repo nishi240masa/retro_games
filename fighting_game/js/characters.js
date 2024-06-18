@@ -2,8 +2,11 @@
 let player1;
 let enemy;
 
+
+
 // modeの取得
-// const difficulty;
+
+
 
 // キャラクターの初期設定
 function initializeCharacters() {
