@@ -10,7 +10,7 @@ btn_fight.addEventListener("click", function () {
 
 btn_shooting = document.getElementById("btn_shooting");
 btn_shooting.addEventListener("click", function () {
-  window.location.href = "/shooting/html/shooting_main.html";
+  window.location.href = "/shooting/html/shooting_top.html";
 });
 
 btn_breaking = document.getElementById("btn_breaking");
