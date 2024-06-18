@@ -81,3 +81,7 @@ btn_close_gameover_popup.addEventListener("click", function () {
   document.getElementById("game_over_popup").style.display = "none";
   setGameOver("false");
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f616c0c55f2484a29c2ae25ba1aa89e1e8c7f9c

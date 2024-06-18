@@ -244,7 +244,7 @@ window.addEventListener("keydown", (e) => {
       player1.velocityY = player1.jumpStrength;
     }
     // プレイヤー1の遠距離攻撃
-    if (e.key === "e") {
+    if (e.key === "q") {
       player1.attacks.push({
         x: player1.x + player1.width,
         y: player1.y + player1.height / 2,
@@ -254,7 +254,7 @@ window.addEventListener("keydown", (e) => {
       });
     }
     // プレイヤー1の近距離攻撃あ
-    if (e.key === "q" && Math.abs(player1.x - enemy.x) < 50) {
+    if (e.key === "e" && Math.abs(player1.x - enemy.x) < 50) {
       handleMeleeAttack(player1, enemy);
     }
   }
