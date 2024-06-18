@@ -528,6 +528,7 @@ function DrawGameOver(){
             }
             setScore(2,shooting_score);
             game_score = getScore(2); //再度取得　これがないとlastもhighも更新されない
+            lifeZero();
 
             firstLoop++;
         }
