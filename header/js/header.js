@@ -5,22 +5,16 @@ fetch("/header/html/header.html")
     document.querySelector("#header").innerHTML = data;
 
     window.addEventListener("load", () => {
-      console.log("header_title.js");
       const url = window.location.href;
       if (url.includes("index")) {
-        console.log("retro_games");
         retroGameTitle();
       } else if (url.includes("fighting_game")) {
-        console.log("fighting_game");
         fightingGameTitle();
       } else if (url.includes("gluttony_monster")) {
-        console.log("gramon");
         gramonTitle();
       } else if (url.includes("shooting")) {
-        console.log("shooting_game");
         shootingGameTitle();
       } else if (url.includes("breaking_blocks")) {
-        console.log("block_breaker");
         blockBreakerTitle();
       } else {
         console.log("other");

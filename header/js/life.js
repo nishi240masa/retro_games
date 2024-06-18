@@ -64,14 +64,10 @@ function removeLife() {
 
 // ライフが0になった時の処理
 function lifeZero() {
-  console.log("lifeZeroカウント");
   // ライフが0になった時の処理
   if (getLife() == 0) {
-    console.log("lifeZero");
-
     // gameOverを表示する
     document.getElementById("game_over_pop").style.display = "block";
-    console.log("game_over");
 
     // localStorageにスコアを消す
     initScore();
