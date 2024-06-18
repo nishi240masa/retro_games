@@ -81,39 +81,3 @@ btn_close_gameover_popup.addEventListener("click", function () {
   document.getElementById("game_over_popup").style.display = "none";
   setGameOver("false");
 });
-
-// デバック用
-// addLLife;
-btn_addLife = document.getElementById("btn_addLife");
-btn_addLife.addEventListener("click", function () {
-  plusLife();
-  // 画面を更新する(loadを行わずに)
-  drawLife();
-});
-
-// removeLife
-btn_removeLife = document.getElementById("btn_removeLife");
-btn_removeLife.addEventListener("click", function () {
-  minusLife();
-
-  // 画面を更新する(loadを行わずに)
-  drawLife();
-
-  // ライフが0になった時の処理
-  console.log("removeLifezeroカウント");
-
-  lifeZero();
-});
-
-// ローカルストレージを消す
-btn_removeLocalStorage = document.getElementById("btn_removeLocalStorage");
-btn_removeLocalStorage.addEventListener("click", function () {
-  localStorage.clear();
-});
-
-// ローカルストレージをget
-btn_getLocalStorage = document.getElementById("btn_getLocalStorage");
-btn_getLocalStorage.addEventListener("click", function () {
-  console.log(localStorage.getItem("life"));
-  console.log(localStorage.getItem("score"));
-});
