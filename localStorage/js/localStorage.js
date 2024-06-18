@@ -77,6 +77,8 @@ const bleck_breaker = {
   ],
 };
 
+const fighting_mode = "normal";
+
 const life = 5;
 
 const check = "false";
@@ -338,6 +340,24 @@ function getScore(game_id) {
 
   console.log("last_score: " + score.last_score);
   return score;
+}
+
+// fighting_modeをセット
+function setFightingMode(mode) {
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("fighting_mode") == null) {
+    localStorage.setItem("fighting_mode", mode);
+  }
+  localStorage.setItem("fighting_mode", mode);
+}
+
+// fighting_modeを取得
+function getFightingMode() {
+  // localStorageがなかったら初期化
+  if (localStorage.getItem("fighting_mode") == null) {
+    localStorage.setItem("fighting_mode", fighting_mode);
+  }
+  return localStorage.getItem("fighting_mode");
 }
 
 // 取得の使い方
