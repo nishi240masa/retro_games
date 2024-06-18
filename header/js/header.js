@@ -39,7 +39,7 @@ fetch("/header/html/header.html")
     function fightingGameTitle() {
       const title = document.getElementById("title_name");
       console.log(title);
-      if (title) title.innerText = "Pixel Figher";
+      if (title) title.innerText = "Pixel Fighter";
     }
 
     // グラモンの時のタイトルを表示する

@@ -30,6 +30,7 @@ const BULLET_SPEED = 8;
 let game_score = getScore(2);
  
 let $start = document.getElementById('start');
+let $return = document.getElementById('return');
  
 let isPlaying = false; // ゲーム中かどうか？
 let shooting_score = 0; // スコア
@@ -419,6 +420,8 @@ function HitCheck(){
  
             // ゲームオーバーになったのでゲームを再開するためのボタンを表示させる
             $start.style.display = 'block';
+            $return.style.display = 'block';
+ 
  
             // ひとつの敵弾が自機に当たったら他の弾丸の当たり判定は不要なのでループをぬける
             break;
@@ -615,6 +618,7 @@ function Start(){
  
     // ゲーム開始ボタンを非表示にする
     $start.style.display = 'none';
+    $return.style.display = 'none';
  
     // 一つ目の敵をすぐ生成する（乱数任せにするとなかなか出てこない場合があるので）
     let isRight = Math.floor(Math.random() * 2);

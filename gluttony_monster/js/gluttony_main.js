@@ -583,14 +583,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //戻るボタンを押した時の処理
-  const button = document.querySelector("#return");
-  button.addEventListener("click", () => {
-    console.log("戻るボタン");
-    lifeZero();
-    location.href = "../html/gluttony_top.html";
-  });
-
   CountFood();
   Main();
 });

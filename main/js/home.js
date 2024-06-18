@@ -15,7 +15,7 @@ btn_shooting.addEventListener("click", function () {
 
 btn_breaking = document.getElementById("btn_breaking");
 btn_breaking.addEventListener("click", function () {
-  window.location.href = "/breaking_blocks/html/breaking_blocks_game.html";
+  window.location.href = "/breaking_blocks/html/breaking_blocks_top.html";
 });
 
 // 最初に読み込んだ時にlocalsotrageの初期化を行う
